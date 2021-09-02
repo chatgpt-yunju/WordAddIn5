@@ -2,6 +2,7 @@
 
 Public Class Ribbon1
     Public fm1 As Form1
+    Public fm2 As Form2
     Public x As String
     Public y As String
     Private Sub Ribbon1_Load(ByVal sender As System.Object, ByVal e As RibbonUIEventArgs) Handles MyBase.Load
@@ -11,6 +12,9 @@ Public Class Ribbon1
         y = "1"
         If fm1 Is Nothing Then
             fm1 = New Form1
+        End If
+        If fm2 Is Nothing Then
+            fm2 = New Form2
         End If
     End Sub
 
@@ -276,5 +280,894 @@ Public Class Ribbon1
 
     Private Sub Button9_Click(sender As Object, e As RibbonControlEventArgs) Handles Button9.Click
         System.Diagnostics.Process.Start("http://home.ustc.edu.cn/~yunju/IP/")
+    End Sub
+
+    Private Sub Button10_Click(sender As Object, e As RibbonControlEventArgs) Handles Button10.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        Dim oP As Microsoft.Office.Interop.Word.Paragraph
+        Dim pcount As Int16
+        pcount = 0
+        For Each oP In wdapp.ActiveDocument.Paragraphs
+            pcount = pcount + 1
+        Next
+        Dim i As Long
+        For i = 1 To pcount
+            oP = wdapp.ActiveDocument.Paragraphs(i)
+            If (oP.Alignment = 1 And oP.Range.Characters.Count > 1) Then
+                If (oP.Range.Font.Bold = True) Then
+                    If (oP.Range.Characters(1).Text <> " ") Then
+                        If (oP.Range.Font.Color <> RGB(250, 64, 6)) Then
+                            MsgBox("这是总标题")
+
+                            If (Math.Round(wdapp.PointsToCentimeters(oP.LeftIndent), 2) = 0) Then
+                                'MsgBox("总标题左缩进为0.63cm√")
+                                If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorBlue) Then
+                                    oP.Range.Font.Underline = False
+                                End If
+                            Else
+                                'MsgBox("总标题左缩进不是0.63cm×，已使用蓝色下划线标识")
+                                oP.Range.Font.Underline = True
+                                oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorBlue
+                            End If
+
+                            If (oP.FirstLineIndent = 0) Then
+                                'MsgBox("二级标题首行缩进为2字符√")
+                                If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorGreen) Then
+                                    oP.Range.Font.Underline = False
+                                End If
+                            Else
+                                'MsgBox("二级标题首行缩进不是2字符×，已使用紫色下划线标出")
+                                oP.Range.Font.Underline = True
+                                oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorGreen
+                            End If
+
+                            If (oP.LineSpacing = 12) Then
+                                'MsgBox("总标题行距为36磅√")
+                                If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorOrange) Then
+                                    oP.Range.Font.Underline = False
+                                End If
+                            Else
+                                'MsgBox("总标题行距不是36磅×，已使用绿色下划线标识")
+                                oP.Range.Font.Underline = True
+                                oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorOrange
+                            End If
+
+                            If (oP.Alignment = 1) Then
+                                'MsgBox("总标题已居中对齐√")
+                                If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorRed) Then
+                                    oP.Range.Font.Underline = False
+                                End If
+                            Else
+                                'MsgBox("总标题未居中对齐×，已使用橘黄色下划线标识")
+                                oP.Range.Font.Underline = True
+                                oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorRed
+                            End If
+
+                            Dim j As Long
+                            Dim cName, cSize, cBold As Int16
+                            cName = 0
+                            cSize = 0
+                            cBold = 0
+                            For j = 1 To oP.Range.Characters.Count
+                                If (oP.Range.Characters(j).Font.Name = "Times New Roman") Then
+                                    cName = 0
+                                Else
+                                    cName = 1
+                                End If
+                                If (oP.Range.Characters(j).Font.Size = 11) Then
+                                    cSize = 0
+                                Else
+                                    cSize = 1
+                                End If
+                                If (oP.Range.Characters(j).Font.Bold = True) Then
+                                    cBold = 0
+                                Else
+                                    cBold = 1
+                                End If
+                                If (cName = 0 And cSize = 0 And cBold = 0) Then
+                                    oP.Range.Characters(j).HighlightColorIndex = 0
+                                Else
+                                    oP.Range.Characters(j).HighlightColorIndex = 7
+                                End If
+                            Next
+                        End If
+                    End If
+                End If
+            End If
+            If (i = wdapp.ActiveDocument.Paragraphs.Count) Then
+                MsgBox("总标题已校对完毕", 0, "消息提示")
+            End If
+        Next
+    End Sub
+
+    Private Sub Button12_Click(sender As Object, e As RibbonControlEventArgs) Handles Button12.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        Dim oP As Microsoft.Office.Interop.Word.Paragraph
+        Dim i As Long
+        For i = 1 To wdapp.ActiveDocument.Paragraphs.Count
+            oP = wdapp.ActiveDocument.Paragraphs(i)
+            If (oP.Alignment = 1 And oP.Range.Characters.Count > 1) Then
+                If (oP.Range.Font.Bold = True) Then
+                    'MsgBox("这是总标题")
+                    '左侧进
+                    If Len(fm2.TextBoxt1.Text) > 0 Then oP.LeftIndent = CSng(fm2.TextBoxt1.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorBlue) Then
+                        oP.Range.Font.Underline = False
+                    End If
+                    '特殊格式
+                    If Len(fm2.TextBoxt2.Text) > 0 Then oP.FirstLineIndent = CSng(fm2.TextBoxt2.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorGreen) Then
+                        oP.Range.Font.Underline = False
+                    End If
+                    '行距
+                    If Len(fm2.TextBoxt3.Text) > 0 Then oP.LineSpacing = CSng(fm2.TextBoxt3.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorLightOrange) Then
+                        oP.Range.Font.Underline = False
+                    End If
+                    '对齐
+                    If Len(fm2.TextBoxt4.Text) > 0 Then oP.Alignment = CInt(fm2.TextBoxt4.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorRed) Then
+                        oP.Range.Font.Underline = False
+                    End If
+
+                    '字型'
+                    If Len(fm2.TextBoxt5.Text) > 0 Then oP.Range.Font.Name = CStr(fm2.TextBoxt5.Text)
+                    If Len(fm2.TextBoxt6.Text) > 0 Then oP.Range.Font.Size = CSng(fm2.TextBoxt6.Text)
+                    If Len(fm2.TextBoxt7.Text) > 0 Then oP.Range.Font.Bold = CBool(fm2.TextBoxt7.Text)
+                    oP.Range.HighlightColorIndex = 0
+                    If (i = wdapp.ActiveDocument.Paragraphs.Count) Then
+                        MsgBox("已修正完毕", 0, "消息提示")
+                    End If
+                End If
+            End If
+            If (i = wdapp.ActiveDocument.Paragraphs.Count) Then
+                MsgBox("总标题已校对完毕", 0, "消息提示")
+            End If
+        Next
+    End Sub
+
+    Private Sub 作者_Click(sender As Object, e As RibbonControlEventArgs) Handles 作者.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        Dim oP As Microsoft.Office.Interop.Word.Paragraph
+        Dim pcount As Int16
+        pcount = 0
+        For Each oP In wdapp.ActiveDocument.Paragraphs
+            pcount = pcount + 1
+        Next
+        Dim i As Long
+        For i = 1 To pcount
+            oP = wdapp.ActiveDocument.Paragraphs(i)
+            If (oP.Alignment = 1 And oP.Range.Characters.Count > 1) Then
+                If (oP.Range.Font.Bold = False) Then
+                    If (oP.Range.Characters(1).Text <> " ") Then
+                        If (oP.Range.Font.Color <> RGB(250, 64, 6)) Then
+                            'MsgBox("这是作者信息")
+
+                            If (Math.Round(wdapp.PointsToCentimeters(oP.LeftIndent), 2) = 0) Then
+                                'MsgBox("总标题左缩进为0.63cm√")
+                                If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorBlue) Then
+                                    oP.Range.Font.Underline = False
+                                End If
+                            Else
+                                'MsgBox("总标题左缩进不是0.63cm×，已使用蓝色下划线标识")
+                                oP.Range.Font.Underline = True
+                                oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorBlue
+                            End If
+
+                            If (oP.FirstLineIndent = 0) Then
+                                'MsgBox("二级标题首行缩进为2字符√")
+                                If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorGreen) Then
+                                    oP.Range.Font.Underline = False
+                                End If
+                            Else
+                                'MsgBox("二级标题首行缩进不是2字符×，已使用紫色下划线标出")
+                                oP.Range.Font.Underline = True
+                                oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorGreen
+                            End If
+
+                            If (oP.LineSpacing = 12) Then
+                                'MsgBox("总标题行距为36磅√")
+                                If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorOrange) Then
+                                    oP.Range.Font.Underline = False
+                                End If
+                            Else
+                                'MsgBox("总标题行距不是36磅×，已使用绿色下划线标识")
+                                oP.Range.Font.Underline = True
+                                oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorOrange
+                            End If
+
+                            If (oP.Alignment = 1) Then
+                                'MsgBox("总标题已居中对齐√")
+                                If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorRed) Then
+                                    oP.Range.Font.Underline = False
+                                End If
+                            Else
+                                'MsgBox("总标题未居中对齐×，已使用橘黄色下划线标识")
+                                oP.Range.Font.Underline = True
+                                oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorRed
+                            End If
+
+                            Dim j As Long
+                            Dim cName, cSize, cBold As Int16
+                            cName = 0
+                            cSize = 0
+                            cBold = 0
+                            For j = 1 To oP.Range.Characters.Count
+                                If (oP.Range.Characters(j).Font.Name = "Times New Roman") Then
+                                    cName = 0
+                                Else
+                                    cName = 1
+                                End If
+                                If (oP.Range.Characters(j).Font.Size = 11) Then
+                                    cSize = 0
+                                Else
+                                    cSize = 1
+                                End If
+                                If (oP.Range.Characters(j).Font.Bold = False) Then
+                                    cBold = 0
+                                Else
+                                    cBold = 1
+                                End If
+                                If (cName = 0 And cSize = 0 And cBold = 0) Then
+                                    oP.Range.Characters(j).HighlightColorIndex = 0
+                                Else
+                                    oP.Range.Characters(j).HighlightColorIndex = 7
+                                End If
+                            Next
+                        End If
+                    End If
+                End If
+            End If
+            If (i = wdapp.ActiveDocument.Paragraphs.Count) Then
+                MsgBox("作者信息已校对完毕", 0, "消息提示")
+            End If
+        Next
+    End Sub
+
+    Private Sub Button11_Click(sender As Object, e As RibbonControlEventArgs) Handles Button11.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        Dim oP As Microsoft.Office.Interop.Word.Paragraph
+        Dim pcount As Int16
+        pcount = 0
+        For Each oP In wdapp.ActiveDocument.Paragraphs
+            pcount = pcount + 1
+        Next
+        Dim i As Long
+        For i = 1 To pcount
+            oP = wdapp.ActiveDocument.Paragraphs(i)
+            If (oP.Alignment <> 1 And oP.Range.Characters.Count > 1) Then
+                If (Mid(Trim(oP.Range.Text.ToString), 1, 8) = "Abstract") Then
+                    If (oP.Range.Font.Color <> RGB(250, 64, 6)) Then
+                        'MsgBox("这是摘要")
+
+                        If (Math.Round(wdapp.PointsToCentimeters(oP.LeftIndent), 2) = 0) Then
+                            'MsgBox("总标题左缩进为0.63cm√")
+                            If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorBlue) Then
+                                oP.Range.Font.Underline = False
+                            End If
+                        Else
+                            'MsgBox("总标题左缩进不是0.63cm×，已使用蓝色下划线标识")
+                            oP.Range.Font.Underline = True
+                            oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorBlue
+                        End If
+
+                        If (oP.FirstLineIndent = 0) Then
+                            'MsgBox("二级标题首行缩进为2字符√")
+                            If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorGreen) Then
+                                oP.Range.Font.Underline = False
+                            End If
+                        Else
+                            'MsgBox("二级标题首行缩进不是2字符×，已使用紫色下划线标出")
+                            oP.Range.Font.Underline = True
+                            oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorGreen
+                        End If
+
+                        If (oP.LineSpacing = 12) Then
+                            'MsgBox("总标题行距为36磅√")
+                            If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorOrange) Then
+                                oP.Range.Font.Underline = False
+                            End If
+                        Else
+                            'MsgBox("总标题行距不是36磅×，已使用绿色下划线标识")
+                            oP.Range.Font.Underline = True
+                            oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorOrange
+                        End If
+
+                        If (oP.Alignment = 3) Then
+                            'MsgBox("总标题已居中对齐√")
+                            If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorRed) Then
+                                oP.Range.Font.Underline = False
+                            End If
+                        Else
+                            'MsgBox("总标题未居中对齐×，已使用橘黄色下划线标识")
+                            oP.Range.Font.Underline = True
+                            oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorRed
+                        End If
+
+                        Dim j As Long
+                        Dim cName, cSize, cBold As Int16
+                        cName = 0
+                        cSize = 0
+                        cBold = 0
+                        For j = 10 To oP.Range.Characters.Count
+                            If (oP.Range.Characters(j).Font.Name = "Times New Roman") Then
+                                cName = 0
+                            Else
+                                cName = 1
+                            End If
+                            If (oP.Range.Characters(j).Font.Size = 11) Then
+                                cSize = 0
+                            Else
+                                cSize = 1
+                            End If
+                            If (oP.Range.Characters(j).Font.Bold = False) Then
+                                cBold = 0
+                            Else
+                                cBold = 1
+                            End If
+                            If (cName = 0 And cSize = 0 And cBold = 0) Then
+                                oP.Range.Characters(j).HighlightColorIndex = 0
+                            Else
+                                oP.Range.Characters(j).HighlightColorIndex = 7
+                            End If
+                        Next
+                    End If
+                End If
+            End If
+            If (i = wdapp.ActiveDocument.Paragraphs.Count) Then
+                MsgBox("摘要已校对完毕", 0, "消息提示")
+            End If
+        Next
+    End Sub
+
+    Private Sub Button13_Click(sender As Object, e As RibbonControlEventArgs) Handles Button13.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        Dim oP As Microsoft.Office.Interop.Word.Paragraph
+        Dim pcount As Int16
+        pcount = 0
+        For Each oP In wdapp.ActiveDocument.Paragraphs
+            pcount = pcount + 1
+        Next
+        Dim i As Long
+        For i = 1 To pcount
+            oP = wdapp.ActiveDocument.Paragraphs(i)
+            If (oP.Alignment <> 1 And oP.Range.Characters.Count > 1) Then
+                If (Mid(Trim(oP.Range.Text.ToString), 1, 3) = "Key") Then
+                    If (oP.Range.Font.Color <> RGB(250, 64, 6)) Then
+                        'MsgBox("这是关键词")
+
+                        If (Math.Round(wdapp.PointsToCentimeters(oP.LeftIndent), 2) = 0) Then
+                            'MsgBox("总标题左缩进为0.63cm√")
+                            If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorBlue) Then
+                                oP.Range.Font.Underline = False
+                            End If
+                        Else
+                            'MsgBox("总标题左缩进不是0.63cm×，已使用蓝色下划线标识")
+                            oP.Range.Font.Underline = True
+                            oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorBlue
+                        End If
+
+                        If (oP.FirstLineIndent = 0) Then
+                            'MsgBox("二级标题首行缩进为2字符√")
+                            If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorGreen) Then
+                                oP.Range.Font.Underline = False
+                            End If
+                        Else
+                            'MsgBox("二级标题首行缩进不是2字符×，已使用紫色下划线标出")
+                            oP.Range.Font.Underline = True
+                            oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorGreen
+                        End If
+
+                        If (oP.LineSpacing = 12) Then
+                            'MsgBox("总标题行距为36磅√")
+                            If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorOrange) Then
+                                oP.Range.Font.Underline = False
+                            End If
+                        Else
+                            'MsgBox("总标题行距不是36磅×，已使用绿色下划线标识")
+                            oP.Range.Font.Underline = True
+                            oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorOrange
+                        End If
+
+                        If (oP.Alignment = 3) Then
+                            'MsgBox("总标题已居中对齐√")
+                            If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorRed) Then
+                                oP.Range.Font.Underline = False
+                            End If
+                        Else
+                            'MsgBox("总标题未居中对齐×，已使用橘黄色下划线标识")
+                            oP.Range.Font.Underline = True
+                            oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorRed
+                        End If
+
+                        Dim j As Long
+                        Dim cName, cSize, cBold As Int16
+                        cName = 0
+                        cSize = 0
+                        cBold = 0
+                        For j = 10 To oP.Range.Characters.Count
+                            If (oP.Range.Characters(j).Font.Name = "Times New Roman") Then
+                                cName = 0
+                            Else
+                                cName = 1
+                            End If
+                            If (oP.Range.Characters(j).Font.Size = 11) Then
+                                cSize = 0
+                            Else
+                                cSize = 1
+                            End If
+                            If (oP.Range.Characters(j).Font.Bold = False) Then
+                                cBold = 0
+                            Else
+                                cBold = 1
+                            End If
+                            If (cName = 0 And cSize = 0 And cBold = 0) Then
+                                oP.Range.Characters(j).HighlightColorIndex = 0
+                            Else
+                                oP.Range.Characters(j).HighlightColorIndex = 7
+                            End If
+                        Next
+                    End If
+                End If
+            End If
+            If (i = wdapp.ActiveDocument.Paragraphs.Count) Then
+                MsgBox("关键词已校对完毕", 0, "消息提示")
+            End If
+        Next
+    End Sub
+
+    Private Sub Button14_Click(sender As Object, e As RibbonControlEventArgs) Handles Button14.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        Dim oP As Microsoft.Office.Interop.Word.Paragraph
+        Dim pcount As Int16
+        pcount = 0
+        For Each oP In wdapp.ActiveDocument.Paragraphs
+            pcount = pcount + 1
+        Next
+        Dim i As Long
+        For i = 1 To pcount
+            oP = wdapp.ActiveDocument.Paragraphs(i)
+            If (oP.Alignment <> 1 And oP.Range.Characters.Count > 1) Then
+                If (Mid(Trim(oP.Range.Text.ToString), 1, 1) = "[") Then
+                    If (oP.Range.Font.Color <> RGB(250, 64, 6)) Then
+                        'MsgBox("这是参考文献")
+
+                        If (Math.Round(wdapp.PointsToCentimeters(oP.LeftIndent), 2) = 0) Then
+                            'MsgBox("总标题左缩进为0.63cm√")
+                            If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorBlue) Then
+                                oP.Range.Font.Underline = False
+                            End If
+                        Else
+                            'MsgBox("总标题左缩进不是0.63cm×，已使用蓝色下划线标识")
+                            oP.Range.Font.Underline = True
+                            oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorBlue
+                        End If
+
+                        If (oP.FirstLineIndent = 0) Then
+                            'MsgBox("二级标题首行缩进为2字符√")
+                            If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorGreen) Then
+                                oP.Range.Font.Underline = False
+                            End If
+                        Else
+                            'MsgBox("二级标题首行缩进不是2字符×，已使用紫色下划线标出")
+                            oP.Range.Font.Underline = True
+                            oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorGreen
+                        End If
+
+                        If (oP.LineSpacing = 12) Then
+                            'MsgBox("总标题行距为36磅√")
+                            If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorOrange) Then
+                                oP.Range.Font.Underline = False
+                            End If
+                        Else
+                            'MsgBox("总标题行距不是36磅×，已使用绿色下划线标识")
+                            oP.Range.Font.Underline = True
+                            oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorOrange
+                        End If
+
+                        If (oP.Alignment = 3) Then
+                            'MsgBox("总标题已居中对齐√")
+                            If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorRed) Then
+                                oP.Range.Font.Underline = False
+                            End If
+                        Else
+                            'MsgBox("总标题未居中对齐×，已使用橘黄色下划线标识")
+                            oP.Range.Font.Underline = True
+                            oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorRed
+                        End If
+
+                        Dim j As Long
+                        Dim cName, cSize, cBold As Int16
+                        cName = 0
+                        cSize = 0
+                        cBold = 0
+                        For j = 1 To oP.Range.Characters.Count
+                            If (oP.Range.Characters(j).Font.Name = "Times New Roman") Then
+                                cName = 0
+                            Else
+                                cName = 1
+                            End If
+                            If (oP.Range.Characters(j).Font.Size = 11) Then
+                                cSize = 0
+                            Else
+                                cSize = 1
+                            End If
+                            If (oP.Range.Characters(j).Font.Bold = False) Then
+                                cBold = 0
+                            Else
+                                cBold = 1
+                            End If
+                            If (cName = 0 And cSize = 0 And cBold = 0) Then
+                                oP.Range.Characters(j).HighlightColorIndex = 0
+                            Else
+                                oP.Range.Characters(j).HighlightColorIndex = 7
+                            End If
+                        Next
+                    End If
+                End If
+            End If
+            If (i = wdapp.ActiveDocument.Paragraphs.Count) Then
+                MsgBox("参考文献已校对完毕", 0, "消息提示")
+            End If
+        Next
+    End Sub
+
+    Private Sub Button15_Click(sender As Object, e As RibbonControlEventArgs) Handles Button15.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        Dim oP As Microsoft.Office.Interop.Word.Paragraph
+        Dim i As Long
+        Dim qs, ws, pd As Int16
+        If Len(fm2.TextBoxr8.Text) > 0 Then qs = CInt(fm2.TextBoxr8.Text)
+        If Len(fm2.TextBoxr9.Text) > 0 Then ws = CInt(fm2.TextBoxr9.Text)
+        If Len(fm2.TextBoxr10.Text) > 0 Then pd = CStr(fm2.TextBoxr10.Text)
+
+        For i = 1 To wdapp.ActiveDocument.Paragraphs.Count
+            oP = wdapp.ActiveDocument.Paragraphs(i)
+            If (Mid(Trim(oP.Range.Text.ToString), qs, ws) = pd) Then
+                If (oP.Range.Font.Bold = True) Then
+                    'MsgBox("这是一级标题")
+                    '左侧进
+                    If Len(fm2.TextBoxr1.Text) > 0 Then oP.LeftIndent = CSng(fm2.TextBoxr1.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorBlue) Then
+                        oP.Range.Font.Underline = False
+                    End If
+                    '特殊格式
+                    If Len(fm2.TextBoxr2.Text) > 0 Then oP.FirstLineIndent = CSng(fm2.TextBoxr2.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorGreen) Then
+                        oP.Range.Font.Underline = False
+                    End If
+                    '行距
+                    If Len(fm2.TextBoxr3.Text) > 0 Then oP.LineSpacing = CSng(fm2.TextBoxr3.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorLightOrange) Then
+                        oP.Range.Font.Underline = False
+                    End If
+                    '对齐
+                    If Len(fm2.TextBoxr4.Text) > 0 Then oP.Alignment = CInt(fm2.TextBoxr4.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorRed) Then
+                        oP.Range.Font.Underline = False
+                    End If
+
+                    '字型'
+                    If Len(fm2.TextBoxr5.Text) > 0 Then oP.Range.Font.Name = CStr(fm2.TextBoxr5.Text)
+                    If Len(fm2.TextBoxr6.Text) > 0 Then oP.Range.Font.Size = CSng(fm2.TextBoxr6.Text)
+                    If Len(fm2.TextBoxr7.Text) > 0 Then oP.Range.Font.Bold = CBool(fm2.TextBoxr7.Text)
+                    oP.Range.HighlightColorIndex = 0
+                    If (i = wdapp.ActiveDocument.Paragraphs.Count) Then
+                        MsgBox("已修正完毕", 0, "消息提示")
+                    End If
+                End If
+            End If
+            If (i = wdapp.ActiveDocument.Paragraphs.Count) Then
+                MsgBox("总标题已校对完毕", 0, "消息提示")
+            End If
+        Next
+    End Sub
+
+    Private Sub Button16_Click(sender As Object, e As RibbonControlEventArgs) Handles Button16.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        Dim oP As Microsoft.Office.Interop.Word.Paragraph
+        Dim i As Long
+        For i = 1 To wdapp.ActiveDocument.Paragraphs.Count
+            oP = wdapp.ActiveDocument.Paragraphs(i)
+            '左侧进
+            'If Len(fm1.TextBox61.Text) > 0 Then oP.LeftIndent = CSng(fm1.TextBox61.Text)
+            'If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorBlue) Then
+            '    oP.Range.Font.Underline = False
+            'End If
+            ''特殊格式
+            'If Len(fm1.TextBox62.Text) > 0 Then oP.FirstLineIndent = CSng(fm1.TextBox62.Text)
+            'If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorGreen) Then
+            '    oP.Range.Font.Underline = False
+            'End If
+            ''行距
+            'If Len(fm1.TextBox63.Text) > 0 Then oP.LineSpacing = CSng(fm1.TextBox63.Text)
+            'If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorLightOrange) Then
+            '    oP.Range.Font.Underline = False
+            'End If
+            ''对齐
+            'If Len(fm1.TextBox64.Text) > 0 Then oP.Alignment = CInt(fm1.TextBox64.Text)
+            'If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorRed) Then
+            '    oP.Range.Font.Underline = False
+            'End If
+
+            ''字型'
+            'If Len(fm1.TextBox65.Text) > 0 Then oP.Range.Font.Name = CStr(fm1.TextBox65.Text)
+            'If Len(fm1.TextBox66.Text) > 0 Then oP.Range.Font.Size = CSng(fm1.TextBox66.Text)
+            'If Len(fm1.TextBox67.Text) > 0 Then oP.Range.Font.Bold = CBool(fm1.TextBox67.Text)
+            'oP.Range.HighlightColorIndex = 0
+
+        Next
+    End Sub
+
+    Private Sub Button17_Click(sender As Object, e As RibbonControlEventArgs) Handles Button17.Click
+        If fm2.Visible = False Then
+            fm2.Show()
+        Else
+
+        End If
+    End Sub
+
+    Private Sub Button18_Click(sender As Object, e As RibbonControlEventArgs) Handles Button18.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        Dim oP As Microsoft.Office.Interop.Word.Paragraph
+        Dim i As Long
+        For i = 1 To wdapp.ActiveDocument.Paragraphs.Count
+            oP = wdapp.ActiveDocument.Paragraphs(i)
+            If (oP.Alignment = 1 And oP.Range.Characters.Count > 1) Then
+                If (oP.Range.Font.Bold = False) Then
+                    'MsgBox("这是副标题")
+                    '左侧进
+                    If Len(fm2.TextBoxs1.Text) > 0 Then oP.LeftIndent = CSng(fm2.TextBoxs1.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorBlue) Then
+                        oP.Range.Font.Underline = False
+                    End If
+                    '特殊格式
+                    If Len(fm2.TextBoxs2.Text) > 0 Then oP.FirstLineIndent = CSng(fm2.TextBoxs2.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorGreen) Then
+                        oP.Range.Font.Underline = False
+                    End If
+                    '行距
+                    If Len(fm2.TextBoxs3.Text) > 0 Then oP.LineSpacing = CSng(fm2.TextBoxs3.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorLightOrange) Then
+                        oP.Range.Font.Underline = False
+                    End If
+                    '对齐
+                    If Len(fm2.TextBoxs4.Text) > 0 Then oP.Alignment = CInt(fm2.TextBoxs4.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorRed) Then
+                        oP.Range.Font.Underline = False
+                    End If
+
+                    '字型'
+                    If Len(fm2.TextBoxs5.Text) > 0 Then oP.Range.Font.Name = CStr(fm2.TextBoxs5.Text)
+                    If Len(fm2.TextBoxs6.Text) > 0 Then oP.Range.Font.Size = CSng(fm2.TextBoxs6.Text)
+                    If Len(fm2.TextBoxs7.Text) > 0 Then oP.Range.Font.Bold = CBool(fm2.TextBoxs7.Text)
+                    oP.Range.HighlightColorIndex = 0
+
+                End If
+            End If
+            If (i = wdapp.ActiveDocument.Paragraphs.Count) Then
+                MsgBox("副标题已校对完毕", 0, "消息提示")
+            End If
+        Next
+    End Sub
+
+    Private Sub Button19_Click(sender As Object, e As RibbonControlEventArgs) Handles Button19.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        Dim oP As Microsoft.Office.Interop.Word.Paragraph
+        Dim i As Long
+        For i = 1 To wdapp.ActiveDocument.Paragraphs.Count
+            oP = wdapp.ActiveDocument.Paragraphs(i)
+            If (Mid(Trim(oP.Range.Text.ToString), Val(fm2.TextBoxf8.Text), Val(fm2.TextBoxf9.Text)) = fm2.TextBoxf10.Text.Trim.ToString) Then
+                If (oP.Range.Font.Bold = True) Then
+                    MsgBox("这是一级标题")
+                    '左侧进
+                    If Len(fm2.TextBoxf1.Text) > 0 Then oP.LeftIndent = CSng(fm2.TextBoxf1.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorBlue) Then
+                        oP.Range.Font.Underline = False
+                    End If
+                    '特殊格式
+                    If Len(fm2.TextBoxf2.Text) > 0 Then oP.FirstLineIndent = CSng(fm2.TextBoxf2.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorGreen) Then
+                        oP.Range.Font.Underline = False
+                    End If
+                    '行距
+                    If Len(fm2.TextBoxf3.Text) > 0 Then oP.LineSpacing = CSng(fm2.TextBoxf3.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorLightOrange) Then
+                        oP.Range.Font.Underline = False
+                    End If
+                    '对齐
+                    If Len(fm2.TextBoxf4.Text) > 0 Then oP.Alignment = CInt(fm2.TextBoxf4.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorRed) Then
+                        oP.Range.Font.Underline = False
+                    End If
+
+                    '字型'
+                    If Len(fm2.TextBoxf5.Text) > 0 Then oP.Range.Font.Name = CStr(fm2.TextBoxf5.Text)
+                    If Len(fm2.TextBoxf6.Text) > 0 Then oP.Range.Font.Size = CSng(fm2.TextBoxf6.Text)
+                    If Len(fm2.TextBoxf7.Text) > 0 Then oP.Range.Font.Bold = CBool(fm2.TextBoxf7.Text)
+                    oP.Range.HighlightColorIndex = 0
+
+                End If
+            End If
+            If (i = wdapp.ActiveDocument.Paragraphs.Count) Then
+                MsgBox("一级标题已校对完毕", 0, "消息提示")
+            End If
+        Next
+    End Sub
+
+    Private Sub Button20_Click(sender As Object, e As RibbonControlEventArgs) Handles Button20.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        Dim oP As Microsoft.Office.Interop.Word.Paragraph
+        Dim i As Long
+
+
+        For i = 1 To wdapp.ActiveDocument.Paragraphs.Count
+            oP = wdapp.ActiveDocument.Paragraphs(i)
+            If (Mid(Trim(oP.Range.Text.ToString), CInt(fm2.TextBoxsec8.Text), CInt(fm2.TextBoxsec9.Text)) = fm2.TextBoxsec10.Text.Trim.ToString) Then
+                If (oP.Range.Font.Bold = True) Then
+                    'MsgBox("这是二级标题")
+                    '左侧进
+                    If Len(fm2.TextBoxsec1.Text) > 0 Then oP.LeftIndent = CSng(fm2.TextBoxsec1.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorBlue) Then
+                        oP.Range.Font.Underline = False
+                    End If
+                    '特殊格式
+                    If Len(fm2.TextBoxsec2.Text) > 0 Then oP.FirstLineIndent = CSng(fm2.TextBoxsec2.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorGreen) Then
+                        oP.Range.Font.Underline = False
+                    End If
+                    '行距
+                    If Len(fm2.TextBoxsec3.Text) > 0 Then oP.LineSpacing = CSng(fm2.TextBoxsec3.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorLightOrange) Then
+                        oP.Range.Font.Underline = False
+                    End If
+                    '对齐
+                    If Len(fm2.TextBoxsec4.Text) > 0 Then oP.Alignment = CInt(fm2.TextBoxsec4.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorRed) Then
+                        oP.Range.Font.Underline = False
+                    End If
+
+                    '字型'
+                    If Len(fm2.TextBoxsec5.Text) > 0 Then oP.Range.Font.Name = CStr(fm2.TextBoxsec5.Text)
+                    If Len(fm2.TextBoxsec6.Text) > 0 Then oP.Range.Font.Size = CSng(fm2.TextBoxsec6.Text)
+                    If Len(fm2.TextBoxsec7.Text) > 0 Then oP.Range.Font.Bold = CBool(fm2.TextBoxsec7.Text)
+                    oP.Range.HighlightColorIndex = 0
+
+                End If
+            End If
+            If (i = wdapp.ActiveDocument.Paragraphs.Count) Then
+                MsgBox("二级标题已校对完毕", 0, "消息提示")
+            End If
+        Next
+    End Sub
+
+    Private Sub Button21_Click(sender As Object, e As RibbonControlEventArgs) Handles Button21.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        Dim oP As Microsoft.Office.Interop.Word.Paragraph
+        Dim i As Long
+
+
+        For i = 1 To wdapp.ActiveDocument.Paragraphs.Count
+            oP = wdapp.ActiveDocument.Paragraphs(i)
+            If (Mid(Trim(oP.Range.Text.ToString), CInt(fm2.TextBoxthd8.Text), CInt(fm2.TextBoxthd9.Text)) = fm2.TextBoxthd10.Text.Trim.ToString) Then
+                If (oP.Range.Font.Bold = True) Then
+                    'MsgBox("这是三级标题")
+                    '左侧进
+                    If Len(fm2.TextBoxthd1.Text) > 0 Then oP.LeftIndent = CSng(fm2.TextBoxthd1.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorBlue) Then
+                        oP.Range.Font.Underline = False
+                    End If
+                    '特殊格式
+                    If Len(fm2.TextBoxthd2.Text) > 0 Then oP.FirstLineIndent = CSng(fm2.TextBoxthd2.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorGreen) Then
+                        oP.Range.Font.Underline = False
+                    End If
+                    '行距
+                    If Len(fm2.TextBoxthd3.Text) > 0 Then oP.LineSpacing = CSng(fm2.TextBoxthd3.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorLightOrange) Then
+                        oP.Range.Font.Underline = False
+                    End If
+                    '对齐
+                    If Len(fm2.TextBoxthd4.Text) > 0 Then oP.Alignment = CInt(fm2.TextBoxthd4.Text)
+                    If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorRed) Then
+                        oP.Range.Font.Underline = False
+                    End If
+
+                    '字型'
+                    If Len(fm2.TextBoxthd5.Text) > 0 Then oP.Range.Font.Name = CStr(fm2.TextBoxthd5.Text)
+                    If Len(fm2.TextBoxthd6.Text) > 0 Then oP.Range.Font.Size = CSng(fm2.TextBoxthd6.Text)
+                    If Len(fm2.TextBoxthd7.Text) > 0 Then oP.Range.Font.Bold = CBool(fm2.TextBoxthd7.Text)
+                    oP.Range.HighlightColorIndex = 0
+
+                End If
+            End If
+            If (i = wdapp.ActiveDocument.Paragraphs.Count) Then
+                MsgBox("三级标题已校对完毕", 0, "消息提示")
+            End If
+        Next
+    End Sub
+
+    Private Sub Button24_Click(sender As Object, e As RibbonControlEventArgs) Handles Button24.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        Dim oP As Microsoft.Office.Interop.Word.Paragraph
+        Dim i As Long
+
+        For i = 1 To wdapp.ActiveDocument.Paragraphs.Count
+            oP = wdapp.ActiveDocument.Paragraphs(i)
+            If (oP.Alignment <> 1 And oP.Range.Characters.Count > 1 And Mid(Trim(oP.Range.Text.ToString), CInt(fm2.TextBoxf8.Text), CInt(fm2.TextBoxf9.Text)) <> fm2.TextBoxf10.Text.Trim.ToString And Mid(Trim(oP.Range.Text.ToString), CInt(fm2.TextBoxsec8.Text), CInt(fm2.TextBoxsec9.Text)) <> fm2.TextBoxsec10.Text.Trim.ToString And Mid(Trim(oP.Range.Text.ToString), CInt(fm2.TextBoxthd8.Text), CInt(fm2.TextBoxthd9.Text)) <> fm2.TextBoxthd10.Text.Trim.ToString) Then
+
+                'MsgBox("这是正文")
+                '左侧进
+                If Len(fm2.TextBoxc1.Text) > 0 Then oP.LeftIndent = CSng(fm2.TextBoxc1.Text)
+                If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorBlue) Then
+                    oP.Range.Font.Underline = False
+                End If
+                '特殊格式
+                If Len(fm2.TextBoxc2.Text) > 0 Then oP.FirstLineIndent = CSng(fm2.TextBoxc2.Text)
+                If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorGreen) Then
+                    oP.Range.Font.Underline = False
+                End If
+                '行距
+                If Len(fm2.TextBoxc3.Text) > 0 Then oP.LineSpacing = CSng(fm2.TextBoxc3.Text)
+                If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorLightOrange) Then
+                    oP.Range.Font.Underline = False
+                End If
+                '对齐
+                If Len(fm2.TextBoxc4.Text) > 0 Then oP.Alignment = CInt(fm2.TextBoxc4.Text)
+                If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorRed) Then
+                    oP.Range.Font.Underline = False
+                End If
+
+                '字型'
+                If Len(fm2.TextBoxc5.Text) > 0 Then oP.Range.Font.Name = CStr(fm2.TextBoxc5.Text)
+                If Len(fm2.TextBoxc6.Text) > 0 Then oP.Range.Font.Size = CSng(fm2.TextBoxc6.Text)
+                If Len(fm2.TextBoxc7.Text) > 0 Then oP.Range.Font.Bold = CBool(fm2.TextBoxc7.Text)
+                oP.Range.HighlightColorIndex = 0
+            End If
+
+            If (i = wdapp.ActiveDocument.Paragraphs.Count) Then
+                MsgBox("正文已校对完毕", 0, "消息提示")
+            End If
+        Next
+    End Sub
+
+    Private Sub Button25_Click(sender As Object, e As RibbonControlEventArgs) Handles Button25.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        Dim oP As Microsoft.Office.Interop.Word.Paragraph
+        Dim i As Long
+        For i = 1 To wdapp.ActiveDocument.Paragraphs.Count
+            oP = wdapp.ActiveDocument.Paragraphs(i)
+            '左侧进
+            If Len(fm2.TextBoxc1.Text) > 0 Then oP.LeftIndent = CSng(fm2.TextBoxc1.Text)
+            If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorBlue) Then
+                oP.Range.Font.Underline = False
+            End If
+            '特殊格式
+            If Len(fm2.TextBoxc2.Text) > 0 Then oP.FirstLineIndent = CSng(fm2.TextBoxc2.Text)
+            If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorGreen) Then
+                oP.Range.Font.Underline = False
+            End If
+            '行距
+            If Len(fm2.TextBoxc3.Text) > 0 Then oP.LineSpacing = CSng(fm2.TextBoxc3.Text)
+            If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorLightOrange) Then
+                oP.Range.Font.Underline = False
+            End If
+            '对齐
+            If Len(fm2.TextBoxc4.Text) > 0 Then oP.Alignment = CInt(fm2.TextBoxc4.Text)
+            If (oP.Range.Font.UnderlineColor = Microsoft.Office.Interop.Word.WdColor.wdColorRed) Then
+                oP.Range.Font.Underline = False
+            End If
+
+            '字型'
+            If Len(fm2.TextBoxc5.Text) > 0 Then oP.Range.Font.Name = CStr(fm2.TextBoxc5.Text)
+            If Len(fm2.TextBoxc6.Text) > 0 Then oP.Range.Font.Size = CSng(fm2.TextBoxc6.Text)
+            If Len(fm2.TextBoxc7.Text) > 0 Then oP.Range.Font.Bold = CBool(fm2.TextBoxc7.Text)
+            oP.Range.HighlightColorIndex = 0
+
+        Next
+    End Sub
+
+    Private Sub Button23_Click(sender As Object, e As RibbonControlEventArgs) Handles Button23.Click
+
     End Sub
 End Class

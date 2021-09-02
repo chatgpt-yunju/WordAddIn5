@@ -1293,4 +1293,12 @@ Public Class Form1
         Catch ex As Exception
         End Try
     End Sub
+
+    Private Sub TextBox63_TextChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub TextBox62_TextChanged(sender As Object, e As EventArgs)
+
+    End Sub
 End Class
