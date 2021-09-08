@@ -16,6 +16,118 @@ Public Class Ribbon1
         If fm2 Is Nothing Then
             fm2 = New Form2
         End If
+        '中文期刊论文模板初始化
+        '标题
+        fm2.TextBoxt00.Text = “0”
+        fm2.TextBoxt0.Text = “0”
+        fm2.TextBoxt1.Text = “0”
+        fm2.TextBoxt2.Text = “0”
+        fm2.TextBoxt3.Text = “1.5”
+        fm2.TextBoxt4.Text = “1”
+        fm2.TextBoxt5.Text = “宋体”
+        fm2.TextBoxt6.Text = “22”
+        fm2.TextBoxt7.Text = “True”
+        '副标题
+        fm2.TextBoxs00.Text = “0”
+        fm2.TextBoxs0.Text = “0”
+        fm2.TextBoxs1.Text = “0”
+        fm2.TextBoxs2.Text = “0”
+        fm2.TextBoxs3.Text = “1.5”
+        fm2.TextBoxs4.Text = “1”
+        fm2.TextBoxs5.Text = “楷体”
+        fm2.TextBoxs6.Text = “10.5”
+        fm2.TextBoxs7.Text = “False”
+        '摘要
+        fm2.TextBoxAb00.Text = “0”
+        fm2.TextBoxAb0.Text = “0”
+        fm2.TextBoxAb1.Text = “0”
+        fm2.TextBoxAb2.Text = “0.74”
+        fm2.TextBoxAb3.Text = “1.5”
+        fm2.TextBoxAb4.Text = “3”
+        fm2.TextBoxAb5.Text = “楷体”
+        fm2.TextBoxAb6.Text = “9”
+        fm2.TextBoxAb7.Text = “False”
+        fm2.TextBoxAb8.Text = “1”
+        fm2.TextBoxAb9.Text = “2”
+        fm2.TextBoxAb10.Text = “摘要”
+        '关键词
+        fm2.TextBoxKey00.Text = “0”
+        fm2.TextBoxKey0.Text = “0”
+        fm2.TextBoxKey1.Text = “0”
+        fm2.TextBoxKey2.Text = “0”
+        fm2.TextBoxKey3.Text = “1.5”
+        fm2.TextBoxKey4.Text = “3”
+        fm2.TextBoxKey5.Text = “楷体”
+        fm2.TextBoxKey6.Text = “9”
+        fm2.TextBoxKey7.Text = “False”
+        fm2.TextBoxKey8.Text = “1”
+        fm2.TextBoxKey9.Text = “3”
+        fm2.TextBoxKey10.Text = “关键词”
+
+
+        '一级标题
+        fm2.TextBoxf00.Text = “0”
+        fm2.TextBoxf0.Text = “0”
+        fm2.TextBoxf1.Text = “0”
+        fm2.TextBoxf2.Text = “0”
+        fm2.TextBoxf3.Text = “1.5”
+        fm2.TextBoxf4.Text = “3”
+        fm2.TextBoxf5.Text = “宋体”
+        fm2.TextBoxf6.Text = “12”
+        fm2.TextBoxf7.Text = “True”
+        '二级标题
+        fm2.TextBoxsec00.Text = “0”
+        fm2.TextBoxsec0.Text = “0”
+        fm2.TextBoxsec1.Text = “0”
+        fm2.TextBoxsec2.Text = “0”
+        fm2.TextBoxsec3.Text = “1.5”
+        fm2.TextBoxsec4.Text = “3”
+        fm2.TextBoxsec5.Text = “宋体”
+        fm2.TextBoxsec6.Text = “10.5”
+        fm2.TextBoxsec7.Text = “True”
+        '三级标题
+        fm2.TextBoxthd00.Text = “0”
+        fm2.TextBoxthd0.Text = “0”
+        fm2.TextBoxthd1.Text = “0”
+        fm2.TextBoxthd2.Text = “0”
+        fm2.TextBoxthd3.Text = “1.5”
+        fm2.TextBoxthd4.Text = “3”
+        fm2.TextBoxthd5.Text = “宋体”
+        fm2.TextBoxthd6.Text = “10.5”
+        fm2.TextBoxthd7.Text = “False”
+        '正文
+        fm2.TextBoxc00.Text = “0”
+        fm2.TextBoxc0.Text = “0”
+        fm2.TextBoxc1.Text = “0”
+        fm2.TextBoxc2.Text = “0.74”
+        fm2.TextBoxc3.Text = “1.5”
+        fm2.TextBoxc4.Text = “3”
+        fm2.TextBoxc5.Text = “Times New Roman”
+        fm2.TextBoxc6.Text = “12”
+        fm2.TextBoxc7.Text = “False”
+        '参考文献
+        fm2.TextBoxr00.Text = “0”
+        fm2.TextBoxr0.Text = “0”
+        fm2.TextBoxr1.Text = “0”
+        fm2.TextBoxr2.Text = “0.74”
+        fm2.TextBoxr3.Text = “1.5”
+        fm2.TextBoxr4.Text = “3”
+        fm2.TextBoxr5.Text = “宋体”
+        fm2.TextBoxr6.Text = “10.5”
+        fm2.TextBoxr7.Text = “False”
+        '图注
+        fm2.TextBoxtz00.Text = “0”
+        fm2.TextBoxtz0.Text = “0”
+        fm2.TextBoxtz1.Text = “0”
+        fm2.TextBoxtz2.Text = “0”
+        fm2.TextBoxtz3.Text = “1.5”
+        fm2.TextBoxtz4.Text = “1”
+        fm2.TextBoxtz5.Text = “黑体”
+        fm2.TextBoxtz6.Text = “9”
+        fm2.TextBoxtz7.Text = “False”
+        fm2.TextBoxtz8.Text = “1”
+        fm2.TextBoxtz9.Text = “1”
+        fm2.TextBoxtz10.Text = “图”
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As RibbonControlEventArgs) Handles Button2.Click
@@ -282,7 +394,7 @@ Public Class Ribbon1
         System.Diagnostics.Process.Start("http://home.ustc.edu.cn/~yunju/IP/")
     End Sub
 
-    Private Sub Button10_Click(sender As Object, e As RibbonControlEventArgs) Handles Button10.Click
+    Private Sub Button10_Click(sender As Object, e As RibbonControlEventArgs)
         Dim wdapp As Word.Application = Globals.ThisAddIn.Application
         Dim oP As Microsoft.Office.Interop.Word.Paragraph
         Dim pcount As Int16
@@ -430,7 +542,7 @@ Public Class Ribbon1
         Next
     End Sub
 
-    Private Sub 作者_Click(sender As Object, e As RibbonControlEventArgs) Handles 作者.Click
+    Private Sub 作者_Click(sender As Object, e As RibbonControlEventArgs)
         Dim wdapp As Word.Application = Globals.ThisAddIn.Application
         Dim oP As Microsoft.Office.Interop.Word.Paragraph
         Dim pcount As Int16
@@ -528,7 +640,7 @@ Public Class Ribbon1
         Next
     End Sub
 
-    Private Sub Button11_Click(sender As Object, e As RibbonControlEventArgs) Handles Button11.Click
+    Private Sub Button11_Click(sender As Object, e As RibbonControlEventArgs)
         Dim wdapp As Word.Application = Globals.ThisAddIn.Application
         Dim oP As Microsoft.Office.Interop.Word.Paragraph
         Dim pcount As Int16
@@ -624,7 +736,7 @@ Public Class Ribbon1
         Next
     End Sub
 
-    Private Sub Button13_Click(sender As Object, e As RibbonControlEventArgs) Handles Button13.Click
+    Private Sub Button13_Click(sender As Object, e As RibbonControlEventArgs)
         Dim wdapp As Word.Application = Globals.ThisAddIn.Application
         Dim oP As Microsoft.Office.Interop.Word.Paragraph
         Dim pcount As Int16
@@ -720,7 +832,7 @@ Public Class Ribbon1
         Next
     End Sub
 
-    Private Sub Button14_Click(sender As Object, e As RibbonControlEventArgs) Handles Button14.Click
+    Private Sub Button14_Click(sender As Object, e As RibbonControlEventArgs)
         Dim wdapp As Word.Application = Globals.ThisAddIn.Application
         Dim oP As Microsoft.Office.Interop.Word.Paragraph
         Dim pcount As Int16
@@ -1321,7 +1433,7 @@ Public Class Ribbon1
                 oP.Range.HighlightColorIndex = 0
                 '标识符加粗
                 Dim j As Long
-                For j = Val(fm2.TextBoxKey8.Text) To Val(fm2.TextBoxKey9.Text) + 6
+                For j = Val(fm2.TextBoxKey8.Text) To Val(fm2.TextBoxKey9.Text)
                     oP.Range.Characters(j).Font.Bold = True
                 Next
             End If
@@ -1331,7 +1443,7 @@ Public Class Ribbon1
         Next
     End Sub
 
-    Private Sub Button28_Click(sender As Object, e As RibbonControlEventArgs) Handles Button28.Click
+    Private Sub Button28_Click(sender As Object, e As RibbonControlEventArgs)
 
     End Sub
 
@@ -1348,5 +1460,314 @@ Public Class Ribbon1
         Call Button15_Click(sender, e)
         Call Button25_Click(sender, e)
         MsgBox("全文已校对完毕", 0, "消息提示")
+    End Sub
+
+    Private Sub Button29_Click(sender As Object, e As RibbonControlEventArgs) Handles Button29.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        'MsgBox("这是总标题")
+        '段前距
+        If Len(fm2.TextBoxt00.Text) > 0 Then wdapp.Selection.Range.Paragraphs.SpaceBefore = wdapp.LinesToPoints(CSng(fm2.TextBoxt00.Text))
+        '段后距
+        If Len(fm2.TextBoxt0.Text) > 0 Then wdapp.Selection.Range.Paragraphs.SpaceAfter = wdapp.LinesToPoints(CSng(fm2.TextBoxt0.Text))
+        '左侧进
+        If Len(fm2.TextBoxt1.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LeftIndent = CSng(fm2.TextBoxt1.Text)
+        '特殊格式
+        If Len(fm2.TextBoxt2.Text) > 0 Then wdapp.Selection.Range.Paragraphs.FirstLineIndent = CSng(fm2.TextBoxt2.Text)
+        '行距
+        If Len(fm2.TextBoxt3.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LineSpacing = wdapp.CentimetersToPoints(CSng(fm2.TextBoxt3.Text))
+        '对齐
+        If Len(fm2.TextBoxt4.Text) > 0 Then wdapp.Selection.Range.Paragraphs.Alignment = CInt(fm2.TextBoxt4.Text)
+        '字型'
+        If Len(fm2.TextBoxt5.Text) > 0 Then wdapp.Selection.Range.Font.Name = CStr(fm2.TextBoxt5.Text)
+        If Len(fm2.TextBoxt6.Text) > 0 Then wdapp.Selection.Range.Font.Size = CSng(fm2.TextBoxt6.Text)
+        If Len(fm2.TextBoxt7.Text) > 0 Then wdapp.Selection.Range.Font.Bold = CBool(fm2.TextBoxt7.Text)
+    End Sub
+
+    Private Sub Button38_Click(sender As Object, e As RibbonControlEventArgs) Handles Button38.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        'MsgBox("这是图注")
+        '段前距
+        If Len(fm2.TextBoxtz00.Text) > 0 Then wdapp.Selection.Range.Paragraphs.SpaceBefore = wdapp.LinesToPoints(CSng(fm2.TextBoxtz00.Text))
+        '段后距
+        If Len(fm2.TextBoxtz0.Text) > 0 Then wdapp.Selection.Range.Paragraphs.SpaceAfter = wdapp.LinesToPoints(CSng(fm2.TextBoxtz0.Text))
+        '左侧进
+        If Len(fm2.TextBoxtz1.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LeftIndent = CSng(fm2.TextBoxtz1.Text)
+        '特殊格式
+        If Len(fm2.TextBoxtz2.Text) > 0 Then wdapp.Selection.Range.Paragraphs.FirstLineIndent = CSng(fm2.TextBoxtz2.Text)
+        '行距
+        If Len(fm2.TextBoxtz3.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LineSpacing = wdapp.CentimetersToPoints(CSng(fm2.TextBoxtz3.Text))
+        '对齐
+        If Len(fm2.TextBoxtz4.Text) > 0 Then wdapp.Selection.Range.Paragraphs.Alignment = CInt(fm2.TextBoxtz4.Text)
+        '字型'
+        If Len(fm2.TextBoxtz5.Text) > 0 Then wdapp.Selection.Range.Font.Name = CStr(fm2.TextBoxtz5.Text)
+        If Len(fm2.TextBoxtz6.Text) > 0 Then wdapp.Selection.Range.Font.Size = CSng(fm2.TextBoxtz6.Text)
+        If Len(fm2.TextBoxtz7.Text) > 0 Then wdapp.Selection.Range.Font.Bold = CBool(fm2.TextBoxtz7.Text)
+    End Sub
+
+    Private Sub Button30_Click(sender As Object, e As RibbonControlEventArgs) Handles Button30.Click
+
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        'MsgBox("这是摘要")
+        '段前距
+        If Len(fm2.TextBoxAb00.Text) > 0 Then wdapp.Selection.Range.Paragraphs.SpaceBefore = wdapp.LinesToPoints(CSng(fm2.TextBoxAb00.Text))
+        '段后距
+        If Len(fm2.TextBoxAb0.Text) > 0 Then wdapp.Selection.Range.Paragraphs.SpaceAfter = wdapp.LinesToPoints(CSng(fm2.TextBoxAb0.Text))
+        '左侧进
+        If Len(fm2.TextBoxAb1.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LeftIndent = CSng(fm2.TextBoxAb1.Text)
+        '特殊格式
+        If Len(fm2.TextBoxAb2.Text) > 0 Then wdapp.Selection.Range.Paragraphs.FirstLineIndent = CSng(fm2.TextBoxAb2.Text)
+        '行距
+        If Len(fm2.TextBoxAb3.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LineSpacing = wdapp.LinesToPoints(CSng(fm2.TextBoxAb3.Text))
+        '对齐
+        If Len(fm2.TextBoxAb4.Text) > 0 Then wdapp.Selection.Range.Paragraphs.Alignment = CInt(fm2.TextBoxAb4.Text)
+        '字型'
+        If Len(fm2.TextBoxAb5.Text) > 0 Then wdapp.Selection.Range.Font.Name = CStr(fm2.TextBoxAb5.Text)
+        If Len(fm2.TextBoxAb6.Text) > 0 Then wdapp.Selection.Range.Font.Size = CSng(fm2.TextBoxAb6.Text)
+        If Len(fm2.TextBoxAb7.Text) > 0 Then wdapp.Selection.Range.Font.Bold = CBool(fm2.TextBoxAb7.Text)
+        wdapp.Selection.Characters(1).Bold = True
+        wdapp.Selection.Characters(2).Bold = True
+    End Sub
+
+    Private Sub Button32_Click(sender As Object, e As RibbonControlEventArgs) Handles Button32.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        'MsgBox("这是副标题")
+        '段前距
+        If Len(fm2.TextBoxs00.Text) > 0 Then wdapp.Selection.Range.Paragraphs.SpaceBefore = wdapp.LinesToPoints(CSng(fm2.TextBoxs00.Text))
+        '段后距
+        If Len(fm2.TextBoxs0.Text) > 0 Then wdapp.Selection.Range.Paragraphs.SpaceAfter = wdapp.LinesToPoints(CSng(fm2.TextBoxs0.Text))
+        '左侧进
+        If Len(fm2.TextBoxs1.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LeftIndent = CSng(fm2.TextBoxs1.Text)
+        '特殊格式
+        If Len(fm2.TextBoxs2.Text) > 0 Then wdapp.Selection.Range.Paragraphs.FirstLineIndent = CSng(fm2.TextBoxs2.Text)
+        '行距
+        If Len(fm2.TextBoxs3.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LineSpacing = wdapp.LinesToPoints(CSng(fm2.TextBoxs3.Text))
+        '对齐
+        If Len(fm2.TextBoxs4.Text) > 0 Then wdapp.Selection.Range.Paragraphs.Alignment = CInt(fm2.TextBoxs4.Text)
+        '字型'
+        If Len(fm2.TextBoxs5.Text) > 0 Then wdapp.Selection.Range.Font.Name = CStr(fm2.TextBoxs5.Text)
+        If Len(fm2.TextBoxs6.Text) > 0 Then wdapp.Selection.Range.Font.Size = CSng(fm2.TextBoxs6.Text)
+        If Len(fm2.TextBoxs7.Text) > 0 Then wdapp.Selection.Range.Font.Bold = CBool(fm2.TextBoxs7.Text)
+
+    End Sub
+
+    Private Sub Button31_Click(sender As Object, e As RibbonControlEventArgs) Handles Button31.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        'MsgBox("这是摘要")
+        '段前距
+        If Len(fm2.TextBoxKey00.Text) > 0 Then wdapp.Selection.Range.Paragraphs.SpaceBefore = wdapp.LinesToPoints(CSng(fm2.TextBoxKey00.Text))
+        '段后距
+        If Len(fm2.TextBoxKey0.Text) > 0 Then wdapp.Selection.Range.Paragraphs.SpaceAfter = wdapp.LinesToPoints(CSng(fm2.TextBoxKey0.Text))
+        '左侧进
+        If Len(fm2.TextBoxKey1.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LeftIndent = CSng(fm2.TextBoxKey1.Text)
+        '特殊格式
+        If Len(fm2.TextBoxKey2.Text) > 0 Then wdapp.Selection.Range.Paragraphs.FirstLineIndent = CSng(fm2.TextBoxKey2.Text)
+        '行距
+        If Len(fm2.TextBoxKey3.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LineSpacing = wdapp.LinesToPoints(CSng(fm2.TextBoxKey3.Text))
+        '对齐
+        If Len(fm2.TextBoxKey4.Text) > 0 Then wdapp.Selection.Range.Paragraphs.Alignment = CInt(fm2.TextBoxKey4.Text)
+        '字型'
+        If Len(fm2.TextBoxKey5.Text) > 0 Then wdapp.Selection.Range.Font.Name = CStr(fm2.TextBoxKey5.Text)
+        If Len(fm2.TextBoxKey6.Text) > 0 Then wdapp.Selection.Range.Font.Size = CSng(fm2.TextBoxKey6.Text)
+        If Len(fm2.TextBoxKey7.Text) > 0 Then wdapp.Selection.Range.Font.Bold = CBool(fm2.TextBoxKey7.Text)
+    End Sub
+
+    Private Sub Button33_Click(sender As Object, e As RibbonControlEventArgs) Handles Button33.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        'MsgBox("这是一级标题")
+        '段前距
+        If Len(fm2.TextBoxf00.Text) > 0 Then wdapp.Selection.Range.Paragraphs.SpaceBefore = wdapp.LinesToPoints(CSng(fm2.TextBoxf00.Text))
+        '段后距
+        If Len(fm2.TextBoxf0.Text) > 0 Then wdapp.Selection.Range.Paragraphs.SpaceAfter = wdapp.LinesToPoints(CSng(fm2.TextBoxf0.Text))
+        '左侧进
+        If Len(fm2.TextBoxf1.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LeftIndent = CSng(fm2.TextBoxf1.Text)
+        '特殊格式
+        If Len(fm2.TextBoxf2.Text) > 0 Then wdapp.Selection.Range.Paragraphs.FirstLineIndent = CSng(fm2.TextBoxf2.Text)
+        '行距
+        If Len(fm2.TextBoxf3.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LineSpacing = wdapp.LinesToPoints(CSng(fm2.TextBoxf3.Text))
+        '对齐
+        If Len(fm2.TextBoxf4.Text) > 0 Then wdapp.Selection.Range.Paragraphs.Alignment = CInt(fm2.TextBoxf4.Text)
+        '字型'
+        If Len(fm2.TextBoxf5.Text) > 0 Then wdapp.Selection.Range.Font.Name = CStr(fm2.TextBoxf5.Text)
+        If Len(fm2.TextBoxf6.Text) > 0 Then wdapp.Selection.Range.Font.Size = CSng(fm2.TextBoxf6.Text)
+        If Len(fm2.TextBoxf7.Text) > 0 Then wdapp.Selection.Range.Font.Bold = CBool(fm2.TextBoxf7.Text)
+        wdapp.Selection.Characters(1).Bold = True
+        wdapp.Selection.Characters(2).Bold = True
+        wdapp.Selection.Characters(3).Bold = True
+    End Sub
+
+    Private Sub Button34_Click(sender As Object, e As RibbonControlEventArgs) Handles Button34.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        'MsgBox("这是二级标题")
+        '段前距
+        If Len(fm2.TextBoxsec00.Text) > 0 Then wdapp.Selection.Range.Paragraphs.SpaceBefore = wdapp.LinesToPoints(CSng(fm2.TextBoxsec00.Text))
+        '段后距
+        If Len(fm2.TextBoxsec0.Text) > 0 Then wdapp.Selection.Range.Paragraphs.SpaceAfter = wdapp.LinesToPoints(CSng(fm2.TextBoxsec0.Text))
+        '左侧进
+        If Len(fm2.TextBoxsec1.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LeftIndent = CSng(fm2.TextBoxsec1.Text)
+        '特殊格式
+        If Len(fm2.TextBoxsec2.Text) > 0 Then wdapp.Selection.Range.Paragraphs.FirstLineIndent = CSng(fm2.TextBoxsec2.Text)
+        '行距
+        If Len(fm2.TextBoxsec3.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LineSpacing = wdapp.LinesToPoints(CSng(fm2.TextBoxsec3.Text))
+        '对齐
+        If Len(fm2.TextBoxsec4.Text) > 0 Then wdapp.Selection.Range.Paragraphs.Alignment = CInt(fm2.TextBoxsec4.Text)
+        '字型'
+        If Len(fm2.TextBoxsec5.Text) > 0 Then wdapp.Selection.Range.Font.Name = CStr(fm2.TextBoxsec5.Text)
+        If Len(fm2.TextBoxsec6.Text) > 0 Then wdapp.Selection.Range.Font.Size = CSng(fm2.TextBoxsec6.Text)
+        If Len(fm2.TextBoxsec7.Text) > 0 Then wdapp.Selection.Range.Font.Bold = CBool(fm2.TextBoxsec7.Text)
+    End Sub
+
+    Private Sub Button35_Click(sender As Object, e As RibbonControlEventArgs) Handles Button35.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        'MsgBox("这是三级标题")
+        '段前距
+        If Len(fm2.TextBoxthd00.Text) > 0 Then wdapp.Selection.Range.Paragraphs.SpaceBefore = wdapp.LinesToPoints(CSng(fm2.TextBoxthd00.Text))
+        '段后距
+        If Len(fm2.TextBoxthd0.Text) > 0 Then wdapp.Selection.Range.Paragraphs.SpaceAfter = wdapp.LinesToPoints(CSng(fm2.TextBoxthd0.Text))
+        '左侧进
+        If Len(fm2.TextBoxthd1.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LeftIndent = CSng(fm2.TextBoxthd1.Text)
+        '特殊格式
+        If Len(fm2.TextBoxthd2.Text) > 0 Then wdapp.Selection.Range.Paragraphs.FirstLineIndent = CSng(fm2.TextBoxthd2.Text)
+        '行距
+        If Len(fm2.TextBoxthd3.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LineSpacing = wdapp.LinesToPoints(CSng(fm2.TextBoxthd3.Text))
+        '对齐
+        If Len(fm2.TextBoxthd4.Text) > 0 Then wdapp.Selection.Range.Paragraphs.Alignment = CInt(fm2.TextBoxthd4.Text)
+        '字型'
+        If Len(fm2.TextBoxthd5.Text) > 0 Then wdapp.Selection.Range.Font.Name = CStr(fm2.TextBoxthd5.Text)
+        If Len(fm2.TextBoxthd6.Text) > 0 Then wdapp.Selection.Range.Font.Size = CSng(fm2.TextBoxthd6.Text)
+        If Len(fm2.TextBoxthd7.Text) > 0 Then wdapp.Selection.Range.Font.Bold = CBool(fm2.TextBoxthd7.Text)
+    End Sub
+
+    Private Sub Button36_Click(sender As Object, e As RibbonControlEventArgs) Handles Button36.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        'MsgBox("这是正文")
+        '段前距
+        If Len(fm2.TextBoxc00.Text) > 0 Then wdapp.Selection.Range.Paragraphs.SpaceBefore = wdapp.LinesToPoints(CSng(fm2.TextBoxc00.Text))
+        '段后距
+        If Len(fm2.TextBoxc0.Text) > 0 Then wdapp.Selection.Range.Paragraphs.SpaceAfter = wdapp.LinesToPoints(CSng(fm2.TextBoxc0.Text))
+        '左侧进
+        If Len(fm2.TextBoxc1.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LeftIndent = CSng(fm2.TextBoxc1.Text)
+        '特殊格式
+        If Len(fm2.TextBoxc2.Text) > 0 Then wdapp.Selection.Range.Paragraphs.FirstLineIndent = CSng(fm2.TextBoxc2.Text)
+        '行距
+        If Len(fm2.TextBoxc3.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LineSpacing = wdapp.LinesToPoints(CSng(fm2.TextBoxc3.Text))
+        '对齐
+        If Len(fm2.TextBoxc4.Text) > 0 Then wdapp.Selection.Range.Paragraphs.Alignment = CInt(fm2.TextBoxc4.Text)
+        '字型'
+        If Len(fm2.TextBoxc5.Text) > 0 Then wdapp.Selection.Range.Font.Name = CStr(fm2.TextBoxc5.Text)
+        If Len(fm2.TextBoxc6.Text) > 0 Then wdapp.Selection.Range.Font.Size = CSng(fm2.TextBoxc6.Text)
+        If Len(fm2.TextBoxc7.Text) > 0 Then wdapp.Selection.Range.Font.Bold = CBool(fm2.TextBoxc7.Text)
+    End Sub
+
+    Private Sub Button37_Click(sender As Object, e As RibbonControlEventArgs) Handles Button37.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        'MsgBox("这是参考文献")
+        '段前距
+        If Len(fm2.TextBoxr00.Text) > 0 Then wdapp.Selection.Range.Paragraphs.SpaceBefore = wdapp.LinesToPoints(CSng(fm2.TextBoxr00.Text))
+        '段后距
+        If Len(fm2.TextBoxr0.Text) > 0 Then wdapp.Selection.Range.Paragraphs.SpaceAfter = wdapp.LinesToPoints(CSng(fm2.TextBoxr0.Text))
+        '左侧进
+        If Len(fm2.TextBoxr1.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LeftIndent = CSng(fm2.TextBoxr1.Text)
+        '特殊格式
+        If Len(fm2.TextBoxr2.Text) > 0 Then wdapp.Selection.Range.Paragraphs.FirstLineIndent = CSng(fm2.TextBoxr2.Text)
+        '行距
+        If Len(fm2.TextBoxr3.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LineSpacing = wdapp.LinesToPoints(CSng(fm2.TextBoxr3.Text))
+        '对齐
+        If Len(fm2.TextBoxr4.Text) > 0 Then wdapp.Selection.Range.Paragraphs.Alignment = CInt(fm2.TextBoxr4.Text)
+        '字型'
+        If Len(fm2.TextBoxr5.Text) > 0 Then wdapp.Selection.Range.Font.Name = CStr(fm2.TextBoxr5.Text)
+        If Len(fm2.TextBoxr6.Text) > 0 Then wdapp.Selection.Range.Font.Size = CSng(fm2.TextBoxr6.Text)
+        If Len(fm2.TextBoxr7.Text) > 0 Then wdapp.Selection.Range.Font.Bold = CBool(fm2.TextBoxr7.Text)
+    End Sub
+
+    Private Sub Button39_Click(sender As Object, e As RibbonControlEventArgs) Handles Button39.Click
+        MsgBox("功能开发中", 0, "消息提示")
+    End Sub
+
+    Private Sub Button40_Click(sender As Object, e As RibbonControlEventArgs) Handles Button40.Click
+        MsgBox("功能开发中", 0, "消息提示")
+    End Sub
+
+    Private Sub Button10_Click_1(sender As Object, e As RibbonControlEventArgs) Handles Button10.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+
+        wdapp.Selection.InsertAfter（“论文标题（二号宋体，居中，加粗）"）
+        Call Button29_Click(sender, e)
+
+
+    End Sub
+
+    Private Sub Button14_Click_1(sender As Object, e As RibbonControlEventArgs) Handles Button14.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        wdapp.Selection.InsertAfter（“作者1，作者2，作者3，.……（五号楷体，居中）"）
+        Call Button32_Click(sender, e)
+        wdapp.Selection.InsertParagraphAfter()
+        wdapp.Selection.InsertAfter（“（1.学校院、系名，省份城市邮编；2.单位名称，省份城市邮编）（五号楷体，居中）"）
+        Call Button32_Click(sender, e)
+    End Sub
+
+    Private Sub Button43_Click(sender As Object, e As RibbonControlEventArgs) Handles Button43.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        wdapp.Selection.InsertAfter（“ 正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正正文正文正文正文正文正文正文正文正，（五号宋体，段前缩进两格）"）
+        Call Button36_Click(sender, e)
+
+    End Sub
+
+    Private Sub Button42_Click(sender As Object, e As RibbonControlEventArgs) Handles Button42.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        Call Button35_Click(sender, e)
+        wdapp.Selection.InsertAfter（“3.1.1 三级标题（五号宋体，不加粗，顶格，序号和标题文字间有空格"）
+    End Sub
+
+    Private Sub Button11_Click_1(sender As Object, e As RibbonControlEventArgs) Handles Button11.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        wdapp.Selection.InsertAfter（“摘要:摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容..…（小五号楷体）"）
+        Call Button30_Click(sender, e)
+
+    End Sub
+
+    Private Sub Button13_Click_1(sender As Object, e As RibbonControlEventArgs) Handles Button13.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        wdapp.Selection.InsertAfter（“关键词；关键词；关键词；关键词（小五号楷体，全角分号隔开）"）
+        Call Button31_Click(sender, e)
+
+
+    End Sub
+
+    Private Sub Button28_Click_1(sender As Object, e As RibbonControlEventArgs) Handles Button28.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        wdapp.Selection.InsertAfter（“1 一级标题（四号宋体，加粗，顶格，序号和标题文字间有空格"）
+        Call Button33_Click(sender, e)
+
+    End Sub
+
+    Private Sub Button41_Click(sender As Object, e As RibbonControlEventArgs) Handles Button41.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        wdapp.Selection.InsertAfter（“2.1 二级标题（五号宋体，加粗，顶格，序号和标题文字间有空格"）
+        Call Button34_Click(sender, e)
+
+    End Sub
+
+    Private Sub Button44_Click(sender As Object, e As RibbonControlEventArgs) Handles Button44.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        wdapp.Selection.InsertAfter（“[1]期刊——作者.题名[文献类型标志].刊名，出版年，卷（期）：起一止页码.（不要缺少页码）.（小五号宋体，缩进两格；序号和内容间空半格；内容中标点符号均使用半角，后空半格）"）
+        Call Button37_Click(sender, e)
+
+    End Sub
+
+    Private Sub Button47_Click(sender As Object, e As RibbonControlEventArgs) Handles Button47.Click
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        wdapp.Selection.InsertAfter（“图1. xxx示意图（图题使用小五号黑体，居中，列于图下）"）
+        Call Button38_Click(sender, e)
+
+    End Sub
+
+    Private Sub Button45_Click(sender As Object, e As RibbonControlEventArgs) Handles Button45.Click
+        MsgBox("功能开发中", 0, "消息提示")
+
+    End Sub
+
+    Private Sub Button46_Click(sender As Object, e As RibbonControlEventArgs) Handles Button46.Click
+        MsgBox("功能开发中", 0, "消息提示")
+
     End Sub
 End Class

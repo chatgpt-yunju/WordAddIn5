@@ -159,8 +159,8 @@ Public Class Form2
         TextBoxKey6.Text = “11”
         TextBoxKey7.Text = “False”
         TextBoxKey8.Text = “1”
-        TextBoxKey9.Text = “3”
-        TextBoxKey10.Text = “Key”
+        TextBoxKey9.Text = “8”
+        TextBoxKey10.Text = “Keywords”
 
 
         '一级标题
@@ -295,6 +295,9 @@ Public Class Form2
         TextBoxAb5.Enabled = False
         TextBoxAb6.Enabled = False
         TextBoxAb7.Enabled = False
+        TextBoxAb8.Enabled = False
+        TextBoxAb9.Enabled = False
+        TextBoxAb10.Enabled = False
         '关键词
         TextBoxKey00.Text = “0”
         TextBoxKey0.Text = “0”
@@ -329,6 +332,9 @@ Public Class Form2
         TextBoxf5.Enabled = False
         TextBoxf6.Enabled = False
         TextBoxf7.Enabled = False
+        TextBoxf8.Enabled = False
+        TextBoxf9.Enabled = False
+        TextBoxf10.Enabled = False
         '二级标题
         TextBoxsec00.Text = “2”
         TextBoxsec0.Text = “0.5”
@@ -379,5 +385,119 @@ Public Class Form2
         TextBoxtz5.Text = “宋体”
         TextBoxtz6.Text = “10.5”
         TextBoxtz7.Text = “False”
+    End Sub
+
+    Private Sub bt4_Click(sender As Object, e As EventArgs) Handles bt_zwqk.Click
+        '标题
+        TextBoxt00.Text = “0”
+        TextBoxt0.Text = “0”
+        TextBoxt1.Text = “0”
+        TextBoxt2.Text = “0”
+        TextBoxt3.Text = “1.5”
+        TextBoxt4.Text = “1”
+        TextBoxt5.Text = “宋体”
+        TextBoxt6.Text = “22”
+        TextBoxt7.Text = “True”
+        '副标题
+        TextBoxs00.Text = “0”
+        TextBoxs0.Text = “0”
+        TextBoxs1.Text = “0”
+        TextBoxs2.Text = “0”
+        TextBoxs3.Text = “1.5”
+        TextBoxs4.Text = “1”
+        TextBoxs5.Text = “楷体”
+        TextBoxs6.Text = “10.5”
+        TextBoxs7.Text = “False”
+        '摘要
+        TextBoxAb00.Text = “0”
+        TextBoxAb0.Text = “0”
+        TextBoxAb1.Text = “0”
+        TextBoxAb2.Text = “0.74”
+        TextBoxAb3.Text = “1.5”
+        TextBoxAb4.Text = “3”
+        TextBoxAb5.Text = “楷体”
+        TextBoxAb6.Text = “9”
+        TextBoxAb7.Text = “False”
+        TextBoxAb8.Text = “1”
+        TextBoxAb9.Text = “2”
+        TextBoxAb10.Text = “摘要”
+        '关键词
+        TextBoxKey00.Text = “0”
+        TextBoxKey0.Text = “0”
+        TextBoxKey1.Text = “0”
+        TextBoxKey2.Text = “0”
+        TextBoxKey3.Text = “1.5”
+        TextBoxKey4.Text = “3”
+        TextBoxKey5.Text = “楷体”
+        TextBoxKey6.Text = “9”
+        TextBoxKey7.Text = “False”
+        TextBoxKey8.Text = “1”
+        TextBoxKey9.Text = “3”
+        TextBoxKey10.Text = “关键词”
+
+
+        '一级标题
+        TextBoxf00.Text = “0”
+        TextBoxf0.Text = “0”
+        TextBoxf1.Text = “0”
+        TextBoxf2.Text = “0”
+        TextBoxf3.Text = “1.5”
+        TextBoxf4.Text = “3”
+        TextBoxf5.Text = “宋体”
+        TextBoxf6.Text = “12”
+        TextBoxf7.Text = “True”
+        '二级标题
+        TextBoxsec00.Text = “0”
+        TextBoxsec0.Text = “0”
+        TextBoxsec1.Text = “0”
+        TextBoxsec2.Text = “0”
+        TextBoxsec3.Text = “1.5”
+        TextBoxsec4.Text = “3”
+        TextBoxsec5.Text = “宋体”
+        TextBoxsec6.Text = “10.5”
+        TextBoxsec7.Text = “True”
+        '三级标题
+        TextBoxthd00.Text = “0”
+        TextBoxthd0.Text = “0”
+        TextBoxthd1.Text = “0”
+        TextBoxthd2.Text = “0”
+        TextBoxthd3.Text = “1.5”
+        TextBoxthd4.Text = “3”
+        TextBoxthd5.Text = “宋体”
+        TextBoxthd6.Text = “10.5”
+        TextBoxthd7.Text = “False”
+        '正文
+        TextBoxc00.Text = “0”
+        TextBoxc0.Text = “0”
+        TextBoxc1.Text = “0”
+        TextBoxc2.Text = “0.74”
+        TextBoxc3.Text = “1.5”
+        TextBoxc4.Text = “3”
+        TextBoxc5.Text = “Times New Roman”
+        TextBoxc6.Text = “12”
+        TextBoxc7.Text = “False”
+        '参考文献
+        TextBoxr00.Text = “0”
+        TextBoxr0.Text = “0”
+        TextBoxr1.Text = “0”
+        TextBoxr2.Text = “0.74”
+        TextBoxr3.Text = “1.5”
+        TextBoxr4.Text = “3”
+        TextBoxr5.Text = “宋体”
+        TextBoxr6.Text = “10.5”
+        TextBoxr7.Text = “False”
+        '图注
+        TextBoxtz00.Text = “0”
+        TextBoxtz0.Text = “0”
+        TextBoxtz1.Text = “0”
+        TextBoxtz2.Text = “0”
+        TextBoxtz3.Text = “1.5”
+        TextBoxtz4.Text = “1”
+        TextBoxtz5.Text = “黑体”
+        TextBoxtz6.Text = “9”
+        TextBoxtz7.Text = “False”
+        TextBoxtz8.Text = “1”
+        TextBoxtz9.Text = “1”
+        TextBoxtz10.Text = “图”
     End Sub
 End Class

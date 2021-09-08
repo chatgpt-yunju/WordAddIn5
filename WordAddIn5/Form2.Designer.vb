@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form2
     Inherits System.Windows.Forms.Form
 
     'Form 重写 Dispose，以清理组件列表。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form2
     '注意: 以下过程是 Windows 窗体设计器所必需的
     '可以使用 Windows 窗体设计器修改它。  
     '不要使用代码编辑器修改它。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.TextBoxt7 = New System.Windows.Forms.TextBox()
         Me.Label67 = New System.Windows.Forms.Label()
@@ -198,6 +198,7 @@ Partial Class Form2
         Me.Label41 = New System.Windows.Forms.Label()
         Me.Label42 = New System.Windows.Forms.Label()
         Me.Label43 = New System.Windows.Forms.Label()
+        Me.bt_zwqk = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'TextBoxt7
@@ -1458,18 +1459,18 @@ Partial Class Form2
         '
         Me.Button2.Location = New System.Drawing.Point(30, 12)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(86, 23)
+        Me.Button2.Size = New System.Drawing.Size(95, 23)
         Me.Button2.TabIndex = 348
         Me.Button2.Text = "英文论文模板"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(122, 12)
+        Me.Button3.Location = New System.Drawing.Point(271, 12)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(85, 23)
+        Me.Button3.Size = New System.Drawing.Size(122, 23)
         Me.Button3.TabIndex = 349
-        Me.Button3.Text = "中文论文模板"
+        Me.Button3.Text = "中文学位论文模板"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'TextBoxtz0
@@ -1668,12 +1669,22 @@ Partial Class Form2
         Me.Label43.TabIndex = 373
         Me.Label43.Text = "（排除图注）"
         '
+        'bt_zwqk
+        '
+        Me.bt_zwqk.Location = New System.Drawing.Point(144, 12)
+        Me.bt_zwqk.Name = "bt_zwqk"
+        Me.bt_zwqk.Size = New System.Drawing.Size(114, 23)
+        Me.bt_zwqk.TabIndex = 374
+        Me.bt_zwqk.Text = "中文期刊论文模板"
+        Me.bt_zwqk.UseVisualStyleBackColor = True
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1654, 881)
         Me.ControlBox = False
+        Me.Controls.Add(Me.bt_zwqk)
         Me.Controls.Add(Me.Label43)
         Me.Controls.Add(Me.Label42)
         Me.Controls.Add(Me.TextBoxtz0)
@@ -2033,4 +2044,5 @@ Partial Class Form2
     Friend WithEvents Label41 As Windows.Forms.Label
     Friend WithEvents Label42 As Windows.Forms.Label
     Friend WithEvents Label43 As Windows.Forms.Label
+    Friend WithEvents bt_zwqk As Windows.Forms.Button
 End Class
