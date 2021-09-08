@@ -60,16 +60,18 @@
         Me.Button11 = Me.Factory.CreateRibbonButton
         Me.Button13 = Me.Factory.CreateRibbonButton
         Me.Button14 = Me.Factory.CreateRibbonButton
+        Me.Button28 = Me.Factory.CreateRibbonButton
         Me.Button12 = Me.Factory.CreateRibbonButton
+        Me.Button23 = Me.Factory.CreateRibbonButton
+        Me.Button27 = Me.Factory.CreateRibbonButton
         Me.Button18 = Me.Factory.CreateRibbonButton
         Me.Button19 = Me.Factory.CreateRibbonButton
         Me.Button20 = Me.Factory.CreateRibbonButton
         Me.Button21 = Me.Factory.CreateRibbonButton
-        Me.Button23 = Me.Factory.CreateRibbonButton
-        Me.Button15 = Me.Factory.CreateRibbonButton
         Me.Button24 = Me.Factory.CreateRibbonButton
-        Me.Button16 = Me.Factory.CreateRibbonButton
+        Me.Button15 = Me.Factory.CreateRibbonButton
         Me.Button25 = Me.Factory.CreateRibbonButton
+        Me.Button26 = Me.Factory.CreateRibbonButton
         Me.Button17 = Me.Factory.CreateRibbonButton
         Me.Button1 = Me.Factory.CreateRibbonButton
         Me.Button2 = Me.Factory.CreateRibbonButton
@@ -81,6 +83,7 @@
         Me.Button7 = Me.Factory.CreateRibbonButton
         Me.Button9 = Me.Factory.CreateRibbonButton
         Me.Button22 = Me.Factory.CreateRibbonButton
+        Me.Button16 = Me.Factory.CreateRibbonButton
         Me.Tab1.SuspendLayout()
         Me.Group6.SuspendLayout()
         Me.Group7.SuspendLayout()
@@ -113,21 +116,24 @@
         Me.Group6.Items.Add(Me.Button11)
         Me.Group6.Items.Add(Me.Button13)
         Me.Group6.Items.Add(Me.Button14)
+        Me.Group6.Items.Add(Me.Button28)
         Me.Group6.Label = "校对"
         Me.Group6.Name = "Group6"
         '
         'Group7
         '
         Me.Group7.Items.Add(Me.Button12)
+        Me.Group7.Items.Add(Me.Button23)
+        Me.Group7.Items.Add(Me.Button27)
         Me.Group7.Items.Add(Me.Button18)
         Me.Group7.Items.Add(Me.Button19)
         Me.Group7.Items.Add(Me.Button20)
         Me.Group7.Items.Add(Me.Button21)
-        Me.Group7.Items.Add(Me.Button23)
-        Me.Group7.Items.Add(Me.Button15)
         Me.Group7.Items.Add(Me.Button24)
-        Me.Group7.Items.Add(Me.Button16)
+        Me.Group7.Items.Add(Me.Button15)
         Me.Group7.Items.Add(Me.Button25)
+        Me.Group7.Items.Add(Me.Button26)
+        Me.Group7.Items.Add(Me.Button16)
         Me.Group7.Label = "修正"
         Me.Group7.Name = "Group7"
         '
@@ -219,14 +225,29 @@
         Me.Button14.Label = "参考文献"
         Me.Button14.Name = "Button14"
         '
+        'Button28
+        '
+        Me.Button28.Label = "Button28"
+        Me.Button28.Name = "Button28"
+        '
         'Button12
         '
         Me.Button12.Label = "标题"
         Me.Button12.Name = "Button12"
         '
+        'Button23
+        '
+        Me.Button23.Label = "摘要"
+        Me.Button23.Name = "Button23"
+        '
+        'Button27
+        '
+        Me.Button27.Label = "关键词"
+        Me.Button27.Name = "Button27"
+        '
         'Button18
         '
-        Me.Button18.Label = "副标题"
+        Me.Button18.Label = "作者信息"
         Me.Button18.Name = "Button18"
         '
         'Button19
@@ -244,30 +265,25 @@
         Me.Button21.Label = "三级标题"
         Me.Button21.Name = "Button21"
         '
-        'Button23
+        'Button24
         '
-        Me.Button23.Label = "四级标题"
-        Me.Button23.Name = "Button23"
+        Me.Button24.Label = "正文"
+        Me.Button24.Name = "Button24"
         '
         'Button15
         '
         Me.Button15.Label = "参考文献"
         Me.Button15.Name = "Button15"
         '
-        'Button24
-        '
-        Me.Button24.Label = "正文"
-        Me.Button24.Name = "Button24"
-        '
-        'Button16
-        '
-        Me.Button16.Label = "全文（Input）"
-        Me.Button16.Name = "Button16"
-        '
         'Button25
         '
-        Me.Button25.Label = "全文（Input）"
+        Me.Button25.Label = "图注"
         Me.Button25.Name = "Button25"
+        '
+        'Button26
+        '
+        Me.Button26.Label = "公式"
+        Me.Button26.Name = "Button26"
         '
         'Button17
         '
@@ -344,6 +360,11 @@
         Me.Button22.Label = "二级标题"
         Me.Button22.Name = "Button22"
         '
+        'Button16
+        '
+        Me.Button16.Label = "全文"
+        Me.Button16.Name = "Button16"
+        '
         'Ribbon1
         '
         Me.Name = "Ribbon1"
@@ -403,7 +424,6 @@
     Friend WithEvents Button14 As Microsoft.Office.Tools.Ribbon.RibbonButton
     Friend WithEvents Button15 As Microsoft.Office.Tools.Ribbon.RibbonButton
     Friend WithEvents BindingSource1 As Windows.Forms.BindingSource
-    Friend WithEvents Button16 As Microsoft.Office.Tools.Ribbon.RibbonButton
     Friend WithEvents Button17 As Microsoft.Office.Tools.Ribbon.RibbonButton
     Friend WithEvents Button18 As Microsoft.Office.Tools.Ribbon.RibbonButton
     Friend WithEvents Button19 As Microsoft.Office.Tools.Ribbon.RibbonButton
@@ -413,6 +433,10 @@
     Friend WithEvents Button24 As Microsoft.Office.Tools.Ribbon.RibbonButton
     Friend WithEvents Button22 As Microsoft.Office.Tools.Ribbon.RibbonButton
     Friend WithEvents Button25 As Microsoft.Office.Tools.Ribbon.RibbonButton
+    Friend WithEvents Button26 As Microsoft.Office.Tools.Ribbon.RibbonButton
+    Friend WithEvents Button27 As Microsoft.Office.Tools.Ribbon.RibbonButton
+    Friend WithEvents Button28 As Microsoft.Office.Tools.Ribbon.RibbonButton
+    Friend WithEvents Button16 As Microsoft.Office.Tools.Ribbon.RibbonButton
 End Class
 
 Partial Class ThisRibbonCollection
