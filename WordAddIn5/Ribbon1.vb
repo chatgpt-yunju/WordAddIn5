@@ -102,14 +102,14 @@ Public Class Ribbon1
         fm2.TextBoxc2.Text = “0.74”
         fm2.TextBoxc3.Text = “1.5”
         fm2.TextBoxc4.Text = “3”
-        fm2.TextBoxc5.Text = “Times New Roman”
-        fm2.TextBoxc6.Text = “12”
+        fm2.TextBoxc5.Text = “宋体”
+        fm2.TextBoxc6.Text = “10.5”
         fm2.TextBoxc7.Text = “False”
         '参考文献
         fm2.TextBoxr00.Text = “0”
         fm2.TextBoxr0.Text = “0”
         fm2.TextBoxr1.Text = “0”
-        fm2.TextBoxr2.Text = “0.74”
+        fm2.TextBoxr2.Text = “0”
         fm2.TextBoxr3.Text = “1.5”
         fm2.TextBoxr4.Text = “3”
         fm2.TextBoxr5.Text = “宋体”
@@ -391,7 +391,7 @@ Public Class Ribbon1
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As RibbonControlEventArgs) Handles Button9.Click
-        System.Diagnostics.Process.Start("http://home.ustc.edu.cn/~yunju/IP/")
+        System.Diagnostics.Process.Start("http://tip.yunjunet.cn")
     End Sub
 
     Private Sub Button10_Click(sender As Object, e As RibbonControlEventArgs)
@@ -498,8 +498,9 @@ Public Class Ribbon1
         Dim i As Long
         For i = 1 To wdapp.ActiveDocument.Paragraphs.Count
             oP = wdapp.ActiveDocument.Paragraphs(i)
+            oP.Range.ListFormat.ConvertNumbersToText()
             If (oP.Alignment = 1 And oP.Range.Characters.Count > 1) Then
-                If (oP.Range.Font.Bold = True And Mid(Trim(oP.Range.Text.ToString), CInt(fm2.TextBoxtz8.Text), CInt(fm2.TextBoxtz9.Text)) <> fm2.TextBoxtz10.Text.Trim.ToString) Then
+                If (oP.Range.Font.Bold = True And Mid(Trim(oP.Range.Text.ToString), Val(fm2.TextBoxtz8.Text), Val(fm2.TextBoxtz9.Text)) <> fm2.TextBoxtz10.Text.Trim.ToString) Then
                     'MsgBox("这是总标题")
                     '段前距
                     If Len(fm2.TextBoxt00.Text) > 0 Then oP.SpaceBefore = wdapp.LinesToPoints(CSng(fm2.TextBoxt00.Text))
@@ -934,6 +935,8 @@ Public Class Ribbon1
         Dim i As Long
         For i = 1 To wdapp.ActiveDocument.Paragraphs.Count
             oP = wdapp.ActiveDocument.Paragraphs(i)
+            oP.Range.ListFormat.ConvertNumbersToText()
+
             If (oP.Range.Characters.Count > 3) Then
                 If (Mid(Trim(oP.Range.Text.ToString), CInt(fm2.TextBoxr8.Text), CInt(fm2.TextBoxr9.Text)) = fm2.TextBoxr10.Text.Trim.ToString And Mid(Trim(oP.Range.Text.ToString), CInt(fm2.TextBoxr11.Text), CInt(fm2.TextBoxr12.Text)) = fm2.TextBoxr13.Text.Trim.ToString) Then
                     'MsgBox("这是参考文献")
@@ -1024,6 +1027,8 @@ Public Class Ribbon1
         Dim i As Long
         For i = 1 To wdapp.ActiveDocument.Paragraphs.Count
             oP = wdapp.ActiveDocument.Paragraphs(i)
+            oP.Range.ListFormat.ConvertNumbersToText()
+
             If (oP.Alignment = 1 And oP.Range.Characters.Count > 1) Then
                 If (oP.Range.Font.Bold = False And Mid(Trim(oP.Range.Text.ToString), CInt(fm2.TextBoxtz8.Text), CInt(fm2.TextBoxtz9.Text)) <> fm2.TextBoxtz10.Text.Trim.ToString) Then
                     'MsgBox("这是副标题")
@@ -1059,8 +1064,13 @@ Public Class Ribbon1
                     oP.Range.HighlightColorIndex = 0
                 End If
             End If
+
+            If (Mid(Trim(oP.Range.Text.ToString), 2, 4) = "mail" Or Mid(Trim(oP.Range.Text.ToString), 3, 4) = "mail") Then
+                '字型'
+                If Len(fm2.TextBoxs5.Text) > 0 Then oP.Range.Font.Name = "Times New Roman"
+            End If
             If (i = wdapp.ActiveDocument.Paragraphs.Count) Then
-                MsgBox("副标题已校对完毕", 0, "消息提示")
+                MsgBox("作者信息已校对完毕", 0, "消息提示")
             End If
         Next
     End Sub
@@ -1071,6 +1081,8 @@ Public Class Ribbon1
         Dim i As Long
         For i = 1 To wdapp.ActiveDocument.Paragraphs.Count
             oP = wdapp.ActiveDocument.Paragraphs(i)
+            oP.Range.ListFormat.ConvertNumbersToText()
+
             If (oP.Range.Characters.Count > 2 And oP.Alignment <> 1) Then
                 If (Asc(Mid(Trim(oP.Range.Text.ToString), 1, 1)) > 48 And Asc(Mid(Trim(oP.Range.Text.ToString), 1, 1)) < 57 And Asc(Mid(Trim(oP.Range.Text.ToString), 2, 1)) = 32) Then
                     'MsgBox("这是一级标题1")
@@ -1153,6 +1165,8 @@ Public Class Ribbon1
         Dim i As Long
         For i = 1 To wdapp.ActiveDocument.Paragraphs.Count
             oP = wdapp.ActiveDocument.Paragraphs(i)
+            oP.Range.ListFormat.ConvertNumbersToText()
+
             If (Mid(Trim(oP.Range.Text.ToString), CInt(fm2.TextBoxsec8.Text), CInt(fm2.TextBoxsec9.Text)) = fm2.TextBoxsec10.Text.Trim.ToString And Mid(Trim(oP.Range.Text.ToString), CInt(fm2.TextBoxsec11.Text), CInt(fm2.TextBoxsec12.Text)) <> fm2.TextBoxsec13.Text.Trim.ToString And Mid(Trim(oP.Range.Text.ToString), 6, 1) <> ".") Then
                 'MsgBox("这是二级标题")
                 If (Asc(Mid(Trim(oP.Range.Text.ToString), 3, 1)) > 48 And Asc(Mid(Trim(oP.Range.Text.ToString), 3, 1)) < 57) Then
@@ -1200,6 +1214,8 @@ Public Class Ribbon1
         Dim i As Long
         For i = 1 To wdapp.ActiveDocument.Paragraphs.Count
             oP = wdapp.ActiveDocument.Paragraphs(i)
+            oP.Range.ListFormat.ConvertNumbersToText()
+
             'If (Mid(Trim(oP.Range.Text.ToString), CInt(fm2.TextBoxthd8.Text), CInt(fm2.TextBoxthd9.Text)) = fm2.TextBoxthd10.Text.Trim.ToString And Mid(Trim(oP.Range.Text.ToString), CInt(fm2.TextBoxthd11.Text), CInt(fm2.TextBoxthd12.Text)) = fm2.TextBoxthd13.Text.Trim.ToString And Mid(Trim(oP.Range.Text.ToString), Val(fm2.TextBoxthd14.Text), Val(fm2.TextBoxthd15.Text)) = fm2.TextBoxthd16.Text.ToString.Trim) Then
             If (Mid(Trim(oP.Range.Text.ToString), CInt(fm2.TextBoxthd8.Text), CInt(fm2.TextBoxthd9.Text)) = fm2.TextBoxthd10.Text.Trim.ToString And Mid(Trim(oP.Range.Text.ToString), CInt(fm2.TextBoxthd11.Text), CInt(fm2.TextBoxthd12.Text)) = fm2.TextBoxthd13.Text.Trim.ToString) Then
                 'MsgBox("这是三级标题")
@@ -1245,6 +1261,8 @@ Public Class Ribbon1
         Dim i As Long
         For i = 1 To wdapp.ActiveDocument.Paragraphs.Count
             oP = wdapp.ActiveDocument.Paragraphs(i)
+            oP.Range.ListFormat.ConvertNumbersToText()
+
             'If (oP.Alignment <> 1 And oP.Range.Characters.Count > 1 And Mid(Trim(oP.Range.Text.ToString), CInt(fm2.TextBoxf8.Text), CInt(fm2.TextBoxf9.Text)) <> fm2.TextBoxf10.Text.Trim.ToString And Mid(Trim(oP.Range.Text.ToString), CInt(fm2.TextBoxsec8.Text), CInt(fm2.TextBoxsec9.Text)) <> fm2.TextBoxsec10.Text.Trim.ToString And Mid(Trim(oP.Range.Text.ToString), CInt(fm2.TextBoxthd8.Text), CInt(fm2.TextBoxthd9.Text)) <> fm2.TextBoxthd10.Text.Trim.ToString) Then
             If (oP.Alignment <> 1 And Asc(Mid(Trim(oP.Range.Text.ToString), 1, 1)) <> 91) Then
                 If (Asc(Mid(Trim(oP.Range.Text.ToString), 1, 1)) > 48 And Asc(Mid(Trim(oP.Range.Text.ToString), 1, 1)) < 57) Then
@@ -1297,6 +1315,8 @@ Public Class Ribbon1
         Dim i As Long
         For i = 1 To wdapp.ActiveDocument.Paragraphs.Count
             oP = wdapp.ActiveDocument.Paragraphs(i)
+            oP.Range.ListFormat.ConvertNumbersToText()
+
             If (Mid(Trim(oP.Range.Text.ToString), CInt(fm2.TextBoxtz8.Text), CInt(fm2.TextBoxtz9.Text)) = fm2.TextBoxtz10.Text.Trim.ToString) Then
                 '这是图注
                 '段前距
@@ -1344,6 +1364,8 @@ Public Class Ribbon1
         Dim i As Long
         For i = 1 To wdapp.ActiveDocument.Paragraphs.Count
             oP = wdapp.ActiveDocument.Paragraphs(i)
+            oP.Range.ListFormat.ConvertNumbersToText()
+
             If (Mid(Trim(oP.Range.Text.ToString), Val(fm2.TextBoxAb8.Text), Val(fm2.TextBoxAb9.Text)) = fm2.TextBoxAb10.Text.Trim.ToString) Then
                 'MsgBox("这是摘要")
 
@@ -1399,6 +1421,8 @@ Public Class Ribbon1
         Dim i As Long
         For i = 1 To wdapp.ActiveDocument.Paragraphs.Count
             oP = wdapp.ActiveDocument.Paragraphs(i)
+            oP.Range.ListFormat.ConvertNumbersToText()
+
             If (Mid(Trim(oP.Range.Text.ToString), CInt(fm2.TextBoxKey8.Text), CInt(fm2.TextBoxKey9.Text)) = fm2.TextBoxKey10.Text.Trim.ToString) Then
                 'MsgBox("这是关键词")
 
@@ -1481,6 +1505,7 @@ Public Class Ribbon1
         If Len(fm2.TextBoxt5.Text) > 0 Then wdapp.Selection.Range.Font.Name = CStr(fm2.TextBoxt5.Text)
         If Len(fm2.TextBoxt6.Text) > 0 Then wdapp.Selection.Range.Font.Size = CSng(fm2.TextBoxt6.Text)
         If Len(fm2.TextBoxt7.Text) > 0 Then wdapp.Selection.Range.Font.Bold = CBool(fm2.TextBoxt7.Text)
+        N2T()
     End Sub
 
     Private Sub Button38_Click(sender As Object, e As RibbonControlEventArgs) Handles Button38.Click
@@ -1495,13 +1520,14 @@ Public Class Ribbon1
         '特殊格式
         If Len(fm2.TextBoxtz2.Text) > 0 Then wdapp.Selection.Range.Paragraphs.FirstLineIndent = CSng(fm2.TextBoxtz2.Text)
         '行距
-        If Len(fm2.TextBoxtz3.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LineSpacing = wdapp.CentimetersToPoints(CSng(fm2.TextBoxtz3.Text))
+        If Len(fm2.TextBoxtz3.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LineSpacing = wdapp.LinesToPoints(CSng(fm2.TextBoxtz3.Text))
         '对齐
         If Len(fm2.TextBoxtz4.Text) > 0 Then wdapp.Selection.Range.Paragraphs.Alignment = CInt(fm2.TextBoxtz4.Text)
         '字型'
         If Len(fm2.TextBoxtz5.Text) > 0 Then wdapp.Selection.Range.Font.Name = CStr(fm2.TextBoxtz5.Text)
         If Len(fm2.TextBoxtz6.Text) > 0 Then wdapp.Selection.Range.Font.Size = CSng(fm2.TextBoxtz6.Text)
         If Len(fm2.TextBoxtz7.Text) > 0 Then wdapp.Selection.Range.Font.Bold = CBool(fm2.TextBoxtz7.Text)
+        N2T()
     End Sub
 
     Private Sub Button30_Click(sender As Object, e As RibbonControlEventArgs) Handles Button30.Click
@@ -1526,6 +1552,7 @@ Public Class Ribbon1
         If Len(fm2.TextBoxAb7.Text) > 0 Then wdapp.Selection.Range.Font.Bold = CBool(fm2.TextBoxAb7.Text)
         wdapp.Selection.Characters(1).Bold = True
         wdapp.Selection.Characters(2).Bold = True
+        N2T()
     End Sub
 
     Private Sub Button32_Click(sender As Object, e As RibbonControlEventArgs) Handles Button32.Click
@@ -1547,7 +1574,7 @@ Public Class Ribbon1
         If Len(fm2.TextBoxs5.Text) > 0 Then wdapp.Selection.Range.Font.Name = CStr(fm2.TextBoxs5.Text)
         If Len(fm2.TextBoxs6.Text) > 0 Then wdapp.Selection.Range.Font.Size = CSng(fm2.TextBoxs6.Text)
         If Len(fm2.TextBoxs7.Text) > 0 Then wdapp.Selection.Range.Font.Bold = CBool(fm2.TextBoxs7.Text)
-
+        N2T()
     End Sub
 
     Private Sub Button31_Click(sender As Object, e As RibbonControlEventArgs) Handles Button31.Click
@@ -1569,6 +1596,10 @@ Public Class Ribbon1
         If Len(fm2.TextBoxKey5.Text) > 0 Then wdapp.Selection.Range.Font.Name = CStr(fm2.TextBoxKey5.Text)
         If Len(fm2.TextBoxKey6.Text) > 0 Then wdapp.Selection.Range.Font.Size = CSng(fm2.TextBoxKey6.Text)
         If Len(fm2.TextBoxKey7.Text) > 0 Then wdapp.Selection.Range.Font.Bold = CBool(fm2.TextBoxKey7.Text)
+        wdapp.Selection.Characters(1).Bold = True
+        wdapp.Selection.Characters(2).Bold = True
+        wdapp.Selection.Characters(3).Bold = True
+        N2T()
     End Sub
 
     Private Sub Button33_Click(sender As Object, e As RibbonControlEventArgs) Handles Button33.Click
@@ -1590,9 +1621,7 @@ Public Class Ribbon1
         If Len(fm2.TextBoxf5.Text) > 0 Then wdapp.Selection.Range.Font.Name = CStr(fm2.TextBoxf5.Text)
         If Len(fm2.TextBoxf6.Text) > 0 Then wdapp.Selection.Range.Font.Size = CSng(fm2.TextBoxf6.Text)
         If Len(fm2.TextBoxf7.Text) > 0 Then wdapp.Selection.Range.Font.Bold = CBool(fm2.TextBoxf7.Text)
-        wdapp.Selection.Characters(1).Bold = True
-        wdapp.Selection.Characters(2).Bold = True
-        wdapp.Selection.Characters(3).Bold = True
+        N2T()
     End Sub
 
     Private Sub Button34_Click(sender As Object, e As RibbonControlEventArgs) Handles Button34.Click
@@ -1614,6 +1643,7 @@ Public Class Ribbon1
         If Len(fm2.TextBoxsec5.Text) > 0 Then wdapp.Selection.Range.Font.Name = CStr(fm2.TextBoxsec5.Text)
         If Len(fm2.TextBoxsec6.Text) > 0 Then wdapp.Selection.Range.Font.Size = CSng(fm2.TextBoxsec6.Text)
         If Len(fm2.TextBoxsec7.Text) > 0 Then wdapp.Selection.Range.Font.Bold = CBool(fm2.TextBoxsec7.Text)
+        N2T()
     End Sub
 
     Private Sub Button35_Click(sender As Object, e As RibbonControlEventArgs) Handles Button35.Click
@@ -1635,6 +1665,7 @@ Public Class Ribbon1
         If Len(fm2.TextBoxthd5.Text) > 0 Then wdapp.Selection.Range.Font.Name = CStr(fm2.TextBoxthd5.Text)
         If Len(fm2.TextBoxthd6.Text) > 0 Then wdapp.Selection.Range.Font.Size = CSng(fm2.TextBoxthd6.Text)
         If Len(fm2.TextBoxthd7.Text) > 0 Then wdapp.Selection.Range.Font.Bold = CBool(fm2.TextBoxthd7.Text)
+        N2T()
     End Sub
 
     Private Sub Button36_Click(sender As Object, e As RibbonControlEventArgs) Handles Button36.Click
@@ -1647,7 +1678,7 @@ Public Class Ribbon1
         '左侧进
         If Len(fm2.TextBoxc1.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LeftIndent = CSng(fm2.TextBoxc1.Text)
         '特殊格式
-        If Len(fm2.TextBoxc2.Text) > 0 Then wdapp.Selection.Range.Paragraphs.FirstLineIndent = CSng(fm2.TextBoxc2.Text)
+        If Len(fm2.TextBoxc2.Text) > 0 Then wdapp.Selection.Range.Paragraphs.FirstLineIndent = wdapp.CentimetersToPoints(CSng(fm2.TextBoxc2.Text))
         '行距
         If Len(fm2.TextBoxc3.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LineSpacing = wdapp.LinesToPoints(CSng(fm2.TextBoxc3.Text))
         '对齐
@@ -1656,6 +1687,7 @@ Public Class Ribbon1
         If Len(fm2.TextBoxc5.Text) > 0 Then wdapp.Selection.Range.Font.Name = CStr(fm2.TextBoxc5.Text)
         If Len(fm2.TextBoxc6.Text) > 0 Then wdapp.Selection.Range.Font.Size = CSng(fm2.TextBoxc6.Text)
         If Len(fm2.TextBoxc7.Text) > 0 Then wdapp.Selection.Range.Font.Bold = CBool(fm2.TextBoxc7.Text)
+        N2T()
     End Sub
 
     Private Sub Button37_Click(sender As Object, e As RibbonControlEventArgs) Handles Button37.Click
@@ -1677,6 +1709,7 @@ Public Class Ribbon1
         If Len(fm2.TextBoxr5.Text) > 0 Then wdapp.Selection.Range.Font.Name = CStr(fm2.TextBoxr5.Text)
         If Len(fm2.TextBoxr6.Text) > 0 Then wdapp.Selection.Range.Font.Size = CSng(fm2.TextBoxr6.Text)
         If Len(fm2.TextBoxr7.Text) > 0 Then wdapp.Selection.Range.Font.Bold = CBool(fm2.TextBoxr7.Text)
+        N2T()
     End Sub
 
     Private Sub Button39_Click(sender As Object, e As RibbonControlEventArgs) Handles Button39.Click
@@ -1703,6 +1736,10 @@ Public Class Ribbon1
         wdapp.Selection.InsertParagraphAfter()
         wdapp.Selection.InsertAfter（“（1.学校院、系名，省份城市邮编；2.单位名称，省份城市邮编）（五号楷体，居中）"）
         Call Button32_Click(sender, e)
+        wdapp.Selection.InsertParagraphAfter()
+        wdapp.Selection.InsertAfter（“Email: cyjlnk@foxmail.com(修改为自己的邮箱)"）
+        Call Button32_Click(sender, e)
+        wdapp.Selection.Range.Font.Name = "Times New Roman"
     End Sub
 
     Private Sub Button43_Click(sender As Object, e As RibbonControlEventArgs) Handles Button43.Click
@@ -1770,4 +1807,9 @@ Public Class Ribbon1
         MsgBox("功能开发中", 0, "消息提示")
 
     End Sub
+
+    Function N2T()
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        wdapp.Selection.Range.ListFormat.ConvertNumbersToText()
+    End Function
 End Class

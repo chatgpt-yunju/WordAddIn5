@@ -1862,7 +1862,7 @@ Partial Class Form2
         Me.Controls.Add(Me.TextBoxt1)
         Me.Controls.Add(Me.Label61)
         Me.Name = "Form2"
-        Me.Text = "Form2"
+        Me.Text = "文本格式设置"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

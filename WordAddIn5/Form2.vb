@@ -148,6 +148,9 @@ Public Class Form2
         TextBoxAb5.Text = “Times New Roman”
         TextBoxAb6.Text = “12”
         TextBoxAb7.Text = “False”
+        TextBoxAb8.Text = “1”
+        TextBoxAb9.Text = “8”
+        TextBoxAb10.Text = “Abstract”
         '关键词
         TextBoxKey00.Text = “1.5”
         TextBoxKey0.Text = “0”
@@ -223,6 +226,9 @@ Public Class Form2
         TextBoxtz5.Text = “Times New Roman”
         TextBoxtz6.Text = “12”
         TextBoxtz7.Text = “False”
+        TextBoxtz8.Text = “1”
+        TextBoxtz9.Text = “4”
+        TextBoxtz10.Text = “Fig.”
     End Sub
 
     Private Sub TextBoxt0_TextChanged(sender As Object, e As EventArgs) Handles TextBoxt0.TextChanged
@@ -473,14 +479,14 @@ Public Class Form2
         TextBoxc2.Text = “0.74”
         TextBoxc3.Text = “1.5”
         TextBoxc4.Text = “3”
-        TextBoxc5.Text = “Times New Roman”
-        TextBoxc6.Text = “12”
+        TextBoxc5.Text = “宋体”
+        TextBoxc6.Text = “10.5”
         TextBoxc7.Text = “False”
         '参考文献
         TextBoxr00.Text = “0”
         TextBoxr0.Text = “0”
         TextBoxr1.Text = “0”
-        TextBoxr2.Text = “0.74”
+        TextBoxr2.Text = “0”
         TextBoxr3.Text = “1.5”
         TextBoxr4.Text = “3”
         TextBoxr5.Text = “宋体”
@@ -499,5 +505,9 @@ Public Class Form2
         TextBoxtz8.Text = “1”
         TextBoxtz9.Text = “1”
         TextBoxtz10.Text = “图”
+    End Sub
+
+    Private Sub TextBoxc2_TextChanged(sender As Object, e As EventArgs) Handles TextBoxc2.TextChanged
+
     End Sub
 End Class
