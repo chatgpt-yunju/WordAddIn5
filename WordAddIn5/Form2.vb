@@ -200,7 +200,7 @@ Public Class Form2
         TextBoxc00.Text = “0”
         TextBoxc0.Text = “0”
         TextBoxc1.Text = “0”
-        TextBoxc2.Text = “0.5”
+        TextBoxc2.Text = “0.74”
         TextBoxc3.Text = “1”
         TextBoxc4.Text = “3”
         TextBoxc5.Text = “Times New Roman”

@@ -45,35 +45,21 @@
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Ribbon1))
         Me.Tab1 = Me.Factory.CreateRibbonTab
         Me.Group1 = Me.Factory.CreateRibbonGroup
+        Me.Group6 = Me.Factory.CreateRibbonGroup
+        Me.Group8 = Me.Factory.CreateRibbonGroup
+        Me.Group7 = Me.Factory.CreateRibbonGroup
+        Me.Group2 = Me.Factory.CreateRibbonGroup
+        Me.Group3 = Me.Factory.CreateRibbonGroup
+        Me.Box1 = Me.Factory.CreateRibbonBox
+        Me.EditBox1 = Me.Factory.CreateRibbonEditBox
+        Me.Group4 = Me.Factory.CreateRibbonGroup
+        Me.Box2 = Me.Factory.CreateRibbonBox
+        Me.EditBox2 = Me.Factory.CreateRibbonEditBox
+        Me.Group5 = Me.Factory.CreateRibbonGroup
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.Button17 = Me.Factory.CreateRibbonButton
         Me.Button1 = Me.Factory.CreateRibbonButton
-        Me.Group7 = Me.Factory.CreateRibbonGroup
-        Me.Button12 = Me.Factory.CreateRibbonButton
-        Me.Button23 = Me.Factory.CreateRibbonButton
-        Me.Button27 = Me.Factory.CreateRibbonButton
-        Me.Button18 = Me.Factory.CreateRibbonButton
-        Me.Button19 = Me.Factory.CreateRibbonButton
-        Me.Button20 = Me.Factory.CreateRibbonButton
-        Me.Button21 = Me.Factory.CreateRibbonButton
-        Me.Button24 = Me.Factory.CreateRibbonButton
-        Me.Button15 = Me.Factory.CreateRibbonButton
-        Me.Button25 = Me.Factory.CreateRibbonButton
-        Me.Button26 = Me.Factory.CreateRibbonButton
-        Me.Button16 = Me.Factory.CreateRibbonButton
-        Me.Group8 = Me.Factory.CreateRibbonGroup
-        Me.Button29 = Me.Factory.CreateRibbonButton
-        Me.Button30 = Me.Factory.CreateRibbonButton
-        Me.Button31 = Me.Factory.CreateRibbonButton
-        Me.Button32 = Me.Factory.CreateRibbonButton
-        Me.Button33 = Me.Factory.CreateRibbonButton
-        Me.Button34 = Me.Factory.CreateRibbonButton
-        Me.Button35 = Me.Factory.CreateRibbonButton
-        Me.Button36 = Me.Factory.CreateRibbonButton
-        Me.Button37 = Me.Factory.CreateRibbonButton
-        Me.Button38 = Me.Factory.CreateRibbonButton
-        Me.Button39 = Me.Factory.CreateRibbonButton
-        Me.Button40 = Me.Factory.CreateRibbonButton
-        Me.Group6 = Me.Factory.CreateRibbonGroup
         Me.Button10 = Me.Factory.CreateRibbonButton
         Me.Button11 = Me.Factory.CreateRibbonButton
         Me.Button13 = Me.Factory.CreateRibbonButton
@@ -86,30 +72,44 @@
         Me.Button47 = Me.Factory.CreateRibbonButton
         Me.Button45 = Me.Factory.CreateRibbonButton
         Me.Button46 = Me.Factory.CreateRibbonButton
-        Me.Group2 = Me.Factory.CreateRibbonGroup
+        Me.Button29 = Me.Factory.CreateRibbonButton
+        Me.Button30 = Me.Factory.CreateRibbonButton
+        Me.Button31 = Me.Factory.CreateRibbonButton
+        Me.Button32 = Me.Factory.CreateRibbonButton
+        Me.Button33 = Me.Factory.CreateRibbonButton
+        Me.Button34 = Me.Factory.CreateRibbonButton
+        Me.Button35 = Me.Factory.CreateRibbonButton
+        Me.Button36 = Me.Factory.CreateRibbonButton
+        Me.Button37 = Me.Factory.CreateRibbonButton
+        Me.Button38 = Me.Factory.CreateRibbonButton
+        Me.Button39 = Me.Factory.CreateRibbonButton
+        Me.Button40 = Me.Factory.CreateRibbonButton
+        Me.Button12 = Me.Factory.CreateRibbonButton
+        Me.Button23 = Me.Factory.CreateRibbonButton
+        Me.Button27 = Me.Factory.CreateRibbonButton
+        Me.Button18 = Me.Factory.CreateRibbonButton
+        Me.Button19 = Me.Factory.CreateRibbonButton
+        Me.Button20 = Me.Factory.CreateRibbonButton
+        Me.Button21 = Me.Factory.CreateRibbonButton
+        Me.Button24 = Me.Factory.CreateRibbonButton
+        Me.Button15 = Me.Factory.CreateRibbonButton
+        Me.Button25 = Me.Factory.CreateRibbonButton
+        Me.Button26 = Me.Factory.CreateRibbonButton
+        Me.Button16 = Me.Factory.CreateRibbonButton
         Me.Button2 = Me.Factory.CreateRibbonButton
-        Me.Group3 = Me.Factory.CreateRibbonGroup
         Me.Button3 = Me.Factory.CreateRibbonButton
-        Me.Box1 = Me.Factory.CreateRibbonBox
-        Me.EditBox1 = Me.Factory.CreateRibbonEditBox
         Me.Button6 = Me.Factory.CreateRibbonButton
         Me.Button5 = Me.Factory.CreateRibbonButton
-        Me.Group4 = Me.Factory.CreateRibbonGroup
         Me.Button4 = Me.Factory.CreateRibbonButton
-        Me.Box2 = Me.Factory.CreateRibbonBox
-        Me.EditBox2 = Me.Factory.CreateRibbonEditBox
         Me.Button8 = Me.Factory.CreateRibbonButton
         Me.Button7 = Me.Factory.CreateRibbonButton
-        Me.Group5 = Me.Factory.CreateRibbonGroup
         Me.Button9 = Me.Factory.CreateRibbonButton
         Me.Button22 = Me.Factory.CreateRibbonButton
-        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
-        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.Tab1.SuspendLayout()
         Me.Group1.SuspendLayout()
-        Me.Group7.SuspendLayout()
-        Me.Group8.SuspendLayout()
         Me.Group6.SuspendLayout()
+        Me.Group8.SuspendLayout()
+        Me.Group7.SuspendLayout()
         Me.Group2.SuspendLayout()
         Me.Group3.SuspendLayout()
         Me.Box1.SuspendLayout()
@@ -139,122 +139,22 @@
         Me.Group1.Label = "设置"
         Me.Group1.Name = "Group1"
         '
-        'Button17
+        'Group6
         '
-        Me.Button17.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge
-        Me.Button17.Image = CType(resources.GetObject("Button17.Image"), System.Drawing.Image)
-        Me.Button17.Label = "设置文本格式"
-        Me.Button17.Name = "Button17"
-        Me.Button17.ShowImage = True
-        '
-        'Button1
-        '
-        Me.Button1.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge
-        Me.Button1.Image = Global.WordAddIn5.My.Resources.Resources.image
-        Me.Button1.Label = "设置图片路径"
-        Me.Button1.Name = "Button1"
-        Me.Button1.ShowImage = True
-        '
-        'Group7
-        '
-        Me.Group7.Items.Add(Me.Button12)
-        Me.Group7.Items.Add(Me.Button23)
-        Me.Group7.Items.Add(Me.Button27)
-        Me.Group7.Items.Add(Me.Button18)
-        Me.Group7.Items.Add(Me.Button19)
-        Me.Group7.Items.Add(Me.Button20)
-        Me.Group7.Items.Add(Me.Button21)
-        Me.Group7.Items.Add(Me.Button24)
-        Me.Group7.Items.Add(Me.Button15)
-        Me.Group7.Items.Add(Me.Button25)
-        Me.Group7.Items.Add(Me.Button26)
-        Me.Group7.Items.Add(Me.Button16)
-        Me.Group7.Label = "自动修正"
-        Me.Group7.Name = "Group7"
-        '
-        'Button12
-        '
-        Me.Button12.Image = CType(resources.GetObject("Button12.Image"), System.Drawing.Image)
-        Me.Button12.Label = "标题"
-        Me.Button12.Name = "Button12"
-        Me.Button12.ShowImage = True
-        '
-        'Button23
-        '
-        Me.Button23.Image = CType(resources.GetObject("Button23.Image"), System.Drawing.Image)
-        Me.Button23.Label = "摘要"
-        Me.Button23.Name = "Button23"
-        Me.Button23.ShowImage = True
-        '
-        'Button27
-        '
-        Me.Button27.Image = Global.WordAddIn5.My.Resources.Resources.校对
-        Me.Button27.Label = "关键词"
-        Me.Button27.Name = "Button27"
-        Me.Button27.ShowImage = True
-        '
-        'Button18
-        '
-        Me.Button18.Image = Global.WordAddIn5.My.Resources.Resources.校对
-        Me.Button18.Label = "作者信息"
-        Me.Button18.Name = "Button18"
-        Me.Button18.ShowImage = True
-        '
-        'Button19
-        '
-        Me.Button19.Image = Global.WordAddIn5.My.Resources.Resources.校对
-        Me.Button19.Label = "一级标题"
-        Me.Button19.Name = "Button19"
-        Me.Button19.ShowImage = True
-        '
-        'Button20
-        '
-        Me.Button20.Image = Global.WordAddIn5.My.Resources.Resources.校对
-        Me.Button20.Label = "二级标题"
-        Me.Button20.Name = "Button20"
-        Me.Button20.ShowImage = True
-        '
-        'Button21
-        '
-        Me.Button21.Image = Global.WordAddIn5.My.Resources.Resources.校对
-        Me.Button21.Label = "三级标题"
-        Me.Button21.Name = "Button21"
-        Me.Button21.ShowImage = True
-        '
-        'Button24
-        '
-        Me.Button24.Image = Global.WordAddIn5.My.Resources.Resources.校对
-        Me.Button24.Label = "正文"
-        Me.Button24.Name = "Button24"
-        Me.Button24.ShowImage = True
-        '
-        'Button15
-        '
-        Me.Button15.Image = Global.WordAddIn5.My.Resources.Resources.校对
-        Me.Button15.Label = "参考文献"
-        Me.Button15.Name = "Button15"
-        Me.Button15.ShowImage = True
-        '
-        'Button25
-        '
-        Me.Button25.Image = Global.WordAddIn5.My.Resources.Resources.校对
-        Me.Button25.Label = "图注"
-        Me.Button25.Name = "Button25"
-        Me.Button25.ShowImage = True
-        '
-        'Button26
-        '
-        Me.Button26.Image = Global.WordAddIn5.My.Resources.Resources.校对
-        Me.Button26.Label = "公式"
-        Me.Button26.Name = "Button26"
-        Me.Button26.ShowImage = True
-        '
-        'Button16
-        '
-        Me.Button16.Image = Global.WordAddIn5.My.Resources.Resources.校对
-        Me.Button16.Label = "全文"
-        Me.Button16.Name = "Button16"
-        Me.Button16.ShowImage = True
+        Me.Group6.Items.Add(Me.Button10)
+        Me.Group6.Items.Add(Me.Button11)
+        Me.Group6.Items.Add(Me.Button13)
+        Me.Group6.Items.Add(Me.Button14)
+        Me.Group6.Items.Add(Me.Button28)
+        Me.Group6.Items.Add(Me.Button41)
+        Me.Group6.Items.Add(Me.Button42)
+        Me.Group6.Items.Add(Me.Button43)
+        Me.Group6.Items.Add(Me.Button44)
+        Me.Group6.Items.Add(Me.Button47)
+        Me.Group6.Items.Add(Me.Button45)
+        Me.Group6.Items.Add(Me.Button46)
+        Me.Group6.Label = "插入论文要素"
+        Me.Group6.Name = "Group6"
         '
         'Group8
         '
@@ -273,106 +173,94 @@
         Me.Group8.Label = "段落样式"
         Me.Group8.Name = "Group8"
         '
-        'Button29
+        'Group7
         '
-        Me.Button29.Image = Global.WordAddIn5.My.Resources.Resources.校对
-        Me.Button29.Label = "标题"
-        Me.Button29.Name = "Button29"
-        Me.Button29.ShowImage = True
+        Me.Group7.Items.Add(Me.Button12)
+        Me.Group7.Items.Add(Me.Button23)
+        Me.Group7.Items.Add(Me.Button27)
+        Me.Group7.Items.Add(Me.Button18)
+        Me.Group7.Items.Add(Me.Button19)
+        Me.Group7.Items.Add(Me.Button20)
+        Me.Group7.Items.Add(Me.Button21)
+        Me.Group7.Items.Add(Me.Button24)
+        Me.Group7.Items.Add(Me.Button15)
+        Me.Group7.Items.Add(Me.Button26)
+        Me.Group7.Items.Add(Me.Button25)
+        Me.Group7.Items.Add(Me.Button16)
+        Me.Group7.Label = "自动修正"
+        Me.Group7.Name = "Group7"
         '
-        'Button30
+        'Group2
         '
-        Me.Button30.Image = Global.WordAddIn5.My.Resources.Resources.校对
-        Me.Button30.Label = "摘要"
-        Me.Button30.Name = "Button30"
-        Me.Button30.ShowImage = True
+        Me.Group2.Items.Add(Me.Button2)
+        Me.Group2.Label = "批量更换"
+        Me.Group2.Name = "Group2"
         '
-        'Button31
+        'Group3
         '
-        Me.Button31.Image = Global.WordAddIn5.My.Resources.Resources.校对
-        Me.Button31.Label = "关键词"
-        Me.Button31.Name = "Button31"
-        Me.Button31.ShowImage = True
+        Me.Group3.Items.Add(Me.Button3)
+        Me.Group3.Items.Add(Me.Box1)
+        Me.Group3.Label = "单张更换"
+        Me.Group3.Name = "Group3"
         '
-        'Button32
+        'Box1
         '
-        Me.Button32.Image = Global.WordAddIn5.My.Resources.Resources.校对
-        Me.Button32.Label = "作者信息"
-        Me.Button32.Name = "Button32"
-        Me.Button32.ShowImage = True
+        Me.Box1.Items.Add(Me.EditBox1)
+        Me.Box1.Items.Add(Me.Button6)
+        Me.Box1.Items.Add(Me.Button5)
+        Me.Box1.Name = "Box1"
         '
-        'Button33
+        'EditBox1
         '
-        Me.Button33.Image = Global.WordAddIn5.My.Resources.Resources.校对
-        Me.Button33.Label = "一级标题"
-        Me.Button33.Name = "Button33"
-        Me.Button33.ShowImage = True
+        Me.EditBox1.Label = "x  ="
+        Me.EditBox1.MaxLength = 3
+        Me.EditBox1.Name = "EditBox1"
+        Me.EditBox1.SizeString = "10"
+        Me.EditBox1.Text = Nothing
         '
-        'Button34
+        'Group4
         '
-        Me.Button34.Image = Global.WordAddIn5.My.Resources.Resources.校对
-        Me.Button34.Label = "二级标题"
-        Me.Button34.Name = "Button34"
-        Me.Button34.ShowImage = True
+        Me.Group4.Items.Add(Me.Button4)
+        Me.Group4.Items.Add(Me.Box2)
+        Me.Group4.Label = "插入图片"
+        Me.Group4.Name = "Group4"
         '
-        'Button35
+        'Box2
         '
-        Me.Button35.Image = Global.WordAddIn5.My.Resources.Resources.校对
-        Me.Button35.Label = "三级标题"
-        Me.Button35.Name = "Button35"
-        Me.Button35.ShowImage = True
+        Me.Box2.Items.Add(Me.EditBox2)
+        Me.Box2.Items.Add(Me.Button8)
+        Me.Box2.Items.Add(Me.Button7)
+        Me.Box2.Name = "Box2"
         '
-        'Button36
+        'EditBox2
         '
-        Me.Button36.Image = Global.WordAddIn5.My.Resources.Resources.校对
-        Me.Button36.Label = "正文"
-        Me.Button36.Name = "Button36"
-        Me.Button36.ShowImage = True
+        Me.EditBox2.Label = "y  ="
+        Me.EditBox2.MaxLength = 3
+        Me.EditBox2.Name = "EditBox2"
+        Me.EditBox2.SizeString = "10"
+        Me.EditBox2.Text = Nothing
         '
-        'Button37
+        'Group5
         '
-        Me.Button37.Image = Global.WordAddIn5.My.Resources.Resources.校对
-        Me.Button37.Label = "参考文献"
-        Me.Button37.Name = "Button37"
-        Me.Button37.ShowImage = True
+        Me.Group5.Items.Add(Me.Button9)
+        Me.Group5.Label = "帮助"
+        Me.Group5.Name = "Group5"
         '
-        'Button38
+        'Button17
         '
-        Me.Button38.Image = Global.WordAddIn5.My.Resources.Resources.校对
-        Me.Button38.Label = "图注"
-        Me.Button38.Name = "Button38"
-        Me.Button38.ShowImage = True
+        Me.Button17.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge
+        Me.Button17.Image = CType(resources.GetObject("Button17.Image"), System.Drawing.Image)
+        Me.Button17.Label = "设置文本格式"
+        Me.Button17.Name = "Button17"
+        Me.Button17.ShowImage = True
         '
-        'Button39
+        'Button1
         '
-        Me.Button39.Image = Global.WordAddIn5.My.Resources.Resources.校对
-        Me.Button39.Label = "公式"
-        Me.Button39.Name = "Button39"
-        Me.Button39.ShowImage = True
-        '
-        'Button40
-        '
-        Me.Button40.Image = Global.WordAddIn5.My.Resources.Resources.校对
-        Me.Button40.Label = "图表"
-        Me.Button40.Name = "Button40"
-        Me.Button40.ShowImage = True
-        '
-        'Group6
-        '
-        Me.Group6.Items.Add(Me.Button10)
-        Me.Group6.Items.Add(Me.Button11)
-        Me.Group6.Items.Add(Me.Button13)
-        Me.Group6.Items.Add(Me.Button14)
-        Me.Group6.Items.Add(Me.Button28)
-        Me.Group6.Items.Add(Me.Button41)
-        Me.Group6.Items.Add(Me.Button42)
-        Me.Group6.Items.Add(Me.Button43)
-        Me.Group6.Items.Add(Me.Button44)
-        Me.Group6.Items.Add(Me.Button47)
-        Me.Group6.Items.Add(Me.Button45)
-        Me.Group6.Items.Add(Me.Button46)
-        Me.Group6.Label = "插入论文要素"
-        Me.Group6.Name = "Group6"
+        Me.Button1.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge
+        Me.Button1.Image = Global.WordAddIn5.My.Resources.Resources.image
+        Me.Button1.Label = "设置图片路径"
+        Me.Button1.Name = "Button1"
+        Me.Button1.ShowImage = True
         '
         'Button10
         '
@@ -458,11 +346,173 @@
         Me.Button46.Name = "Button46"
         Me.Button46.ShowImage = True
         '
-        'Group2
+        'Button29
         '
-        Me.Group2.Items.Add(Me.Button2)
-        Me.Group2.Label = "批量更换"
-        Me.Group2.Name = "Group2"
+        Me.Button29.Image = Global.WordAddIn5.My.Resources.Resources.校对
+        Me.Button29.Label = "标题"
+        Me.Button29.Name = "Button29"
+        Me.Button29.ShowImage = True
+        '
+        'Button30
+        '
+        Me.Button30.Image = Global.WordAddIn5.My.Resources.Resources.校对
+        Me.Button30.Label = "摘要"
+        Me.Button30.Name = "Button30"
+        Me.Button30.ShowImage = True
+        '
+        'Button31
+        '
+        Me.Button31.Image = Global.WordAddIn5.My.Resources.Resources.校对
+        Me.Button31.Label = "关键词"
+        Me.Button31.Name = "Button31"
+        Me.Button31.ShowImage = True
+        '
+        'Button32
+        '
+        Me.Button32.Image = Global.WordAddIn5.My.Resources.Resources.校对
+        Me.Button32.Label = "作者信息"
+        Me.Button32.Name = "Button32"
+        Me.Button32.ShowImage = True
+        '
+        'Button33
+        '
+        Me.Button33.Image = Global.WordAddIn5.My.Resources.Resources.校对
+        Me.Button33.Label = "一级标题"
+        Me.Button33.Name = "Button33"
+        Me.Button33.ShowImage = True
+        '
+        'Button34
+        '
+        Me.Button34.Image = Global.WordAddIn5.My.Resources.Resources.校对
+        Me.Button34.Label = "二级标题"
+        Me.Button34.Name = "Button34"
+        Me.Button34.ShowImage = True
+        '
+        'Button35
+        '
+        Me.Button35.Image = Global.WordAddIn5.My.Resources.Resources.校对
+        Me.Button35.Label = "三级标题"
+        Me.Button35.Name = "Button35"
+        Me.Button35.ShowImage = True
+        '
+        'Button36
+        '
+        Me.Button36.Image = Global.WordAddIn5.My.Resources.Resources.校对
+        Me.Button36.Label = "正文"
+        Me.Button36.Name = "Button36"
+        Me.Button36.ShowImage = True
+        '
+        'Button37
+        '
+        Me.Button37.Image = Global.WordAddIn5.My.Resources.Resources.校对
+        Me.Button37.Label = "参考文献"
+        Me.Button37.Name = "Button37"
+        Me.Button37.ShowImage = True
+        '
+        'Button38
+        '
+        Me.Button38.Image = Global.WordAddIn5.My.Resources.Resources.校对
+        Me.Button38.Label = "图注"
+        Me.Button38.Name = "Button38"
+        Me.Button38.ShowImage = True
+        '
+        'Button39
+        '
+        Me.Button39.Image = Global.WordAddIn5.My.Resources.Resources.校对
+        Me.Button39.Label = "公式"
+        Me.Button39.Name = "Button39"
+        Me.Button39.ShowImage = True
+        '
+        'Button40
+        '
+        Me.Button40.Image = Global.WordAddIn5.My.Resources.Resources.校对
+        Me.Button40.Label = "图表"
+        Me.Button40.Name = "Button40"
+        Me.Button40.ShowImage = True
+        '
+        'Button12
+        '
+        Me.Button12.Image = CType(resources.GetObject("Button12.Image"), System.Drawing.Image)
+        Me.Button12.Label = "标题"
+        Me.Button12.Name = "Button12"
+        Me.Button12.ShowImage = True
+        '
+        'Button23
+        '
+        Me.Button23.Image = CType(resources.GetObject("Button23.Image"), System.Drawing.Image)
+        Me.Button23.Label = "摘要"
+        Me.Button23.Name = "Button23"
+        Me.Button23.ShowImage = True
+        '
+        'Button27
+        '
+        Me.Button27.Image = Global.WordAddIn5.My.Resources.Resources.校对
+        Me.Button27.Label = "关键词"
+        Me.Button27.Name = "Button27"
+        Me.Button27.ShowImage = True
+        '
+        'Button18
+        '
+        Me.Button18.Image = Global.WordAddIn5.My.Resources.Resources.校对
+        Me.Button18.Label = "作者信息"
+        Me.Button18.Name = "Button18"
+        Me.Button18.ShowImage = True
+        '
+        'Button19
+        '
+        Me.Button19.Image = Global.WordAddIn5.My.Resources.Resources.校对
+        Me.Button19.Label = "一级标题"
+        Me.Button19.Name = "Button19"
+        Me.Button19.ShowImage = True
+        '
+        'Button20
+        '
+        Me.Button20.Image = Global.WordAddIn5.My.Resources.Resources.校对
+        Me.Button20.Label = "二级标题"
+        Me.Button20.Name = "Button20"
+        Me.Button20.ShowImage = True
+        '
+        'Button21
+        '
+        Me.Button21.Image = Global.WordAddIn5.My.Resources.Resources.校对
+        Me.Button21.Label = "三级标题"
+        Me.Button21.Name = "Button21"
+        Me.Button21.ShowImage = True
+        '
+        'Button24
+        '
+        Me.Button24.Image = Global.WordAddIn5.My.Resources.Resources.校对
+        Me.Button24.Label = "正文"
+        Me.Button24.Name = "Button24"
+        Me.Button24.ShowImage = True
+        '
+        'Button15
+        '
+        Me.Button15.Image = Global.WordAddIn5.My.Resources.Resources.校对
+        Me.Button15.Label = "参考文献"
+        Me.Button15.Name = "Button15"
+        Me.Button15.ShowImage = True
+        '
+        'Button25
+        '
+        Me.Button25.Image = Global.WordAddIn5.My.Resources.Resources.校对
+        Me.Button25.Label = "图注"
+        Me.Button25.Name = "Button25"
+        Me.Button25.ShowImage = True
+        '
+        'Button26
+        '
+        Me.Button26.Image = Global.WordAddIn5.My.Resources.Resources.校对
+        Me.Button26.Label = "删空白行"
+        Me.Button26.Name = "Button26"
+        Me.Button26.ShowImage = True
+        '
+        'Button16
+        '
+        Me.Button16.Image = Global.WordAddIn5.My.Resources.Resources.校对
+        Me.Button16.Label = "全文"
+        Me.Button16.Name = "Button16"
+        Me.Button16.ShowImage = True
         '
         'Button2
         '
@@ -472,34 +522,12 @@
         Me.Button2.Name = "Button2"
         Me.Button2.ShowImage = True
         '
-        'Group3
-        '
-        Me.Group3.Items.Add(Me.Button3)
-        Me.Group3.Items.Add(Me.Box1)
-        Me.Group3.Label = "单张更换"
-        Me.Group3.Name = "Group3"
-        '
         'Button3
         '
         Me.Button3.Image = Global.WordAddIn5.My.Resources.Resources.image
         Me.Button3.Label = "更换第x张图片"
         Me.Button3.Name = "Button3"
         Me.Button3.ShowImage = True
-        '
-        'Box1
-        '
-        Me.Box1.Items.Add(Me.EditBox1)
-        Me.Box1.Items.Add(Me.Button6)
-        Me.Box1.Items.Add(Me.Button5)
-        Me.Box1.Name = "Box1"
-        '
-        'EditBox1
-        '
-        Me.EditBox1.Label = "x  ="
-        Me.EditBox1.MaxLength = 3
-        Me.EditBox1.Name = "EditBox1"
-        Me.EditBox1.SizeString = "10"
-        Me.EditBox1.Text = Nothing
         '
         'Button6
         '
@@ -513,34 +541,12 @@
         Me.Button5.Name = "Button5"
         Me.Button5.ShowImage = True
         '
-        'Group4
-        '
-        Me.Group4.Items.Add(Me.Button4)
-        Me.Group4.Items.Add(Me.Box2)
-        Me.Group4.Label = "插入图片"
-        Me.Group4.Name = "Group4"
-        '
         'Button4
         '
         Me.Button4.Image = Global.WordAddIn5.My.Resources.Resources.image
         Me.Button4.Label = "在光标处插入第y张图片"
         Me.Button4.Name = "Button4"
         Me.Button4.ShowImage = True
-        '
-        'Box2
-        '
-        Me.Box2.Items.Add(Me.EditBox2)
-        Me.Box2.Items.Add(Me.Button8)
-        Me.Box2.Items.Add(Me.Button7)
-        Me.Box2.Name = "Box2"
-        '
-        'EditBox2
-        '
-        Me.EditBox2.Label = "y  ="
-        Me.EditBox2.MaxLength = 3
-        Me.EditBox2.Name = "EditBox2"
-        Me.EditBox2.SizeString = "10"
-        Me.EditBox2.Text = Nothing
         '
         'Button8
         '
@@ -553,12 +559,6 @@
         Me.Button7.Label = "y--"
         Me.Button7.Name = "Button7"
         Me.Button7.ShowImage = True
-        '
-        'Group5
-        '
-        Me.Group5.Items.Add(Me.Button9)
-        Me.Group5.Label = "帮助"
-        Me.Group5.Name = "Group5"
         '
         'Button9
         '
@@ -582,12 +582,12 @@
         Me.Tab1.PerformLayout()
         Me.Group1.ResumeLayout(False)
         Me.Group1.PerformLayout()
-        Me.Group7.ResumeLayout(False)
-        Me.Group7.PerformLayout()
-        Me.Group8.ResumeLayout(False)
-        Me.Group8.PerformLayout()
         Me.Group6.ResumeLayout(False)
         Me.Group6.PerformLayout()
+        Me.Group8.ResumeLayout(False)
+        Me.Group8.PerformLayout()
+        Me.Group7.ResumeLayout(False)
+        Me.Group7.PerformLayout()
         Me.Group2.ResumeLayout(False)
         Me.Group2.PerformLayout()
         Me.Group3.ResumeLayout(False)

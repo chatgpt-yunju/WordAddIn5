@@ -1067,7 +1067,13 @@ Public Class Ribbon1
 
             If (Mid(Trim(oP.Range.Text.ToString), 2, 4) = "mail" Or Mid(Trim(oP.Range.Text.ToString), 3, 4) = "mail") Then
                 '字型'
-                If Len(fm2.TextBoxs5.Text) > 0 Then oP.Range.Font.Name = "Times New Roman"
+                If Len(fm2.TextBoxs5.Text) > 0 Then
+                    If (Asc(Mid(fm2.TextBoxs5.Text, 1, 1)) < 0) Then
+                        oP.Range.Font.Name = "Times New Roman"
+                    Else
+                        oP.Range.Font.Name = CStr(fm2.TextBoxs5.Text)
+                    End If
+                End If
             End If
             If (i = wdapp.ActiveDocument.Paragraphs.Count) Then
                 MsgBox("作者信息已校对完毕", 0, "消息提示")
@@ -1412,7 +1418,20 @@ Public Class Ribbon1
     End Sub
 
     Private Sub Button26_Click(sender As Object, e As RibbonControlEventArgs) Handles Button26.Click
-        MsgBox("功能开发中", 0, "消息提示")
+        Dim wdapp As Word.Application = Globals.ThisAddIn.Application
+        Dim oP As Microsoft.Office.Interop.Word.Paragraph
+        Dim i, n As Long
+        n = 0
+        For i = 1 To wdapp.ActiveDocument.Paragraphs.Count
+            oP = wdapp.ActiveDocument.Paragraphs(i)
+            If (Len(Trim(oP.Range.Text)) = 1 Or Asc(Mid(Trim(oP.Range.Text.ToString), 1, 1)) = 13) Then
+                oP.Range.Delete()
+                n = n + 1
+            End If
+            If (i = wdapp.ActiveDocument.Paragraphs.Count) Then
+                MsgBox("共删除空白段落" & n & "个", 0, "消息提示")
+            End If
+        Next
     End Sub
 
     Private Sub Button27_Click(sender As Object, e As RibbonControlEventArgs) Handles Button27.Click
@@ -1483,6 +1502,7 @@ Public Class Ribbon1
         Call Button24_Click(sender, e)
         Call Button15_Click(sender, e)
         Call Button25_Click(sender, e)
+        Call Button26_Click(sender, e)
         MsgBox("全文已校对完毕", 0, "消息提示")
     End Sub
 
@@ -1498,7 +1518,7 @@ Public Class Ribbon1
         '特殊格式
         If Len(fm2.TextBoxt2.Text) > 0 Then wdapp.Selection.Range.Paragraphs.FirstLineIndent = CSng(fm2.TextBoxt2.Text)
         '行距
-        If Len(fm2.TextBoxt3.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LineSpacing = wdapp.CentimetersToPoints(CSng(fm2.TextBoxt3.Text))
+        If Len(fm2.TextBoxt3.Text) > 0 Then wdapp.Selection.Range.Paragraphs.LineSpacing = wdapp.LinesToPoints(CSng(fm2.TextBoxt3.Text))
         '对齐
         If Len(fm2.TextBoxt4.Text) > 0 Then wdapp.Selection.Range.Paragraphs.Alignment = CInt(fm2.TextBoxt4.Text)
         '字型'
